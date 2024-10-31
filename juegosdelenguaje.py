@@ -1,5 +1,6 @@
 # Description: Juegos de lenguaje en Python
 import random
+import os
 
 # Definir los objetos y las palabras asociadas
 objetos = ['círculo', 'cuadrado', 'triángulo']
@@ -48,10 +49,6 @@ class Agente:
                 if objeto != objeto_correcto:
                     self.conocimiento[palabra][objeto] = max(0.1, self.conocimiento[palabra][objeto] - 0.1)  # Penaliza la incorrecta
 
-# Inicializar dos agentes
-agente1 = Agente()
-agente2 = Agente()
-
 # Realizar una interacción
 def interaccion(agente_emisor, agente_receptor):
     # El emisor selecciona un objeto aleatorio y una palabra
@@ -71,8 +68,31 @@ def interaccion(agente_emisor, agente_receptor):
     # Imprimir el resultado de la interacción
     print(f"Emisor selecciona el objeto '{objeto_seleccionado}' y usa la palabra '{palabra_seleccionada}'.")
     print(f"Receptor adivina el objeto '{objeto_adivinado}'. {'Éxito' if exito else 'Fallo'}.")
-    
+
+# Inicializar dos agentes
+agente1 = Agente()
+agente2 = Agente()
+
 # Simular varias interacciones
 for i in range(10):
     interaccion(agente1, agente2)
     print("---")
+
+"""print("------------------LLEGA OTRO AGENTE------------------")
+
+# Llega otro agente como emisor luego de 10 interacciones
+agente3 = Agente()
+
+for i in range(10):
+    interaccion(agente3, agente1)
+    print("---")"""
+
+print("------------------LLEGA OTRO AGENTE------------------")
+
+# Llega otro agente como receptor luego de 10 interacciones
+agente4 = Agente()
+
+for i in range(10):
+    interaccion(agente2, agente4)
+    print("---")
+
