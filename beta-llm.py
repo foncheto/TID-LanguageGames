@@ -1,87 +1,69 @@
-import random
+import datetime as time
 from langchain_ollama.llms import OllamaLLM
 
-# Inicializar el modelo de lenguaje de Ollama
-llm = OllamaLLM(model='llama3.1')
+# Define file reading functions
+def read_qa_file(file_path):
+    questions = []
+    correct_answers = []
+    incorrect_answers = []
 
-# Definir los objetos en el "mundo" y los conceptos asociados
-objetos = ['círculo', 'cuadrado', 'triángulo']
-conceptos = ['forma redonda', 'forma con cuatro lados', 'forma triangular']
+    with open(file_path, 'r', encoding='utf-8') as file:
+        for line in file:
+            if line.startswith("Question:"):
+                question = line.split("Question:")[1].strip()
+                questions.append(question)
+            elif line.startswith("Correct answers:"):
+                correct = line.split("Correct answers:")[1].strip()
+                correct_answers.append(parse_answers(correct))
+            elif line.startswith("Incorrect answers:"):
+                incorrect = line.split("Incorrect answers:")[1].strip()
+                incorrect_answers.append(parse_answers(incorrect))
 
-# Clase para el agente con LLM y memoria adaptativa
-class AgenteLLM:
-    def __init__(self, nombre):
-        self.nombre = nombre
-        # Conocimiento: una estructura que asocia objetos con conceptos
-        self.conocimiento = {obj: concepto for obj, concepto in zip(objetos, conceptos)}
-        # Memoria adaptativa para almacenar asociaciones incorrectas
-        self.memoria_adaptativa = []
+    return questions, correct_answers, incorrect_answers
 
-    def percibir(self):
-        # Selecciona un objeto del "mundo" y lo percibe
-        objeto_percibido = random.choice(objetos)
-        print(f"{self.nombre} percibe el objeto: {objeto_percibido}")
-        return objeto_percibido
+def parse_answers(answers_str):
+    return [answer.strip() for answer in answers_str.split(';')]
 
-    def conceptualizar(self, objeto):
-        # Conceptualiza el objeto percibido usando su conocimiento
-        concepto = self.conocimiento.get(objeto, "concepto desconocido")
-        print(f"{self.nombre} conceptualiza el objeto '{objeto}' como: {concepto}")
-        return concepto
+# Load questions and answers
+file_path = "QA.txt"
+questions, correct_answers, incorrect_answers = read_qa_file(file_path)
 
-    def verbalizar(self, concepto):
-        # Usa el modelo de lenguaje para generar una utterance
-        utterance = llm.invoke(f"Describe un objeto que tiene el concepto de '{concepto}'")
-        print(f"{self.nombre} verbaliza el concepto '{concepto}': {utterance}")
-        return utterance
+# Initialize Ollama models
+llm_1 = OllamaLLM(model='llama3.1')
+llm_2 = OllamaLLM(model='llama3.1')
 
-    def interpretar(self, utterance):
-        # Intenta deducir el objeto a partir de la utterance utilizando LangChain
-        print(f"{self.nombre} interpreta la utterance: {utterance}")
-        # Búsqueda más flexible: verifica si alguno de los nombres de objeto está en la utterance
-        for obj, concepto in self.conocimiento.items():
-            if obj in utterance and (obj, concepto) not in self.memoria_adaptativa:
-                print(f"{self.nombre} deduce que el objeto es: {obj}")
-                return obj
-        print(f"{self.nombre} no puede deducir el objeto o está en memoria adaptativa.")
-        return "objeto desconocido"
+# Prepare output storage
+outputs = []
 
-    def actualizar_memoria_adaptativa(self, objeto, concepto, exito):
-        # Almacena asociaciones incorrectas en la memoria adaptativa
-        if not exito:
-            if (objeto, concepto) not in self.memoria_adaptativa:
-                print(f"{self.nombre} agrega a memoria adaptativa: ({objeto}, {concepto})")
-                self.memoria_adaptativa.append((objeto, concepto))
-            # Limitar el tamaño de la memoria adaptativa para mantener la eficiencia
-            if len(self.memoria_adaptativa) > 5:
-                self.memoria_adaptativa.pop(0)
+# Process each question
+for i, question in enumerate(questions):
+    date = time.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+    outputs.append(date)
+    outputs.append(f"Question: {question}")
+    outputs.append(f"Expected Answers: {correct_answers[i]}")
 
-# Crear los agentes
-agente1 = AgenteLLM("LLM1")
-agente2 = AgenteLLM("LLM2")
+    # Generate an answer from llm_2
+    question_prompt = f"Answer the following question in a brief, complete sentence.\nQuestion: {question}\nAnswer:"
+    llm_2_response = llm_2.invoke(question_prompt)
+    outputs.append(f"Answer LLM_2: {llm_2_response}")
 
-# Definir el ciclo de interacción entre los agentes
-def ciclo_interaccion(agente_emisor, agente_receptor):
-    # Paso 1: Percepción y Conceptualización
-    objeto_percibido = agente_emisor.percibir()
-    concepto = agente_emisor.conceptualizar(objeto_percibido)
+    # Generate feedback from llm_1
+    feedback_prompt = f"""
+    We are assessing the quality of answers to the following question: {question}
+    Expected answers: {correct_answers[i]}
+    Proposed answer: {llm_2_response}
+    Does the proposed answer match the expected answer in meaning?
+    """
+    feedback_response = llm_1.invoke(feedback_prompt)
+    outputs.append(f"Feedback response: {feedback_response}")
 
-    # Paso 2: Verbalización usando LLM
-    utterance = agente_emisor.verbalizar(concepto)
+    # llm_2 provides feedback based on llm_1's response
+    llm_2_feedback = llm_2.invoke(feedback_response)
+    outputs.append(f"LLM_2 Feedback response: {llm_2_feedback}")
 
-    # Paso 3: Interpretación por el receptor
-    objeto_deducido = agente_receptor.interpretar(utterance)
-    
-    # Paso 4: Retroalimentación y actualización de memoria adaptativa
-    exito = objeto_deducido == objeto_percibido
-    print(f"¿Éxito en la deducción? {'Sí' if exito else 'No'}\n")
-    
-    # Ambos agentes actualizan sus memorias adaptativas según el éxito de la interpretación
-    agente_emisor.actualizar_memoria_adaptativa(objeto_percibido, concepto, exito)
-    agente_receptor.actualizar_memoria_adaptativa(objeto_percibido, concepto, exito)
+    outputs.append("-------------------------------------------------")
 
-# Realizar varias interacciones
-for i in range(5):
-    print(f"\n--- Interacción {i+1} ---")
-    ciclo_interaccion(agente1, agente2)
-    ciclo_interaccion(agente2, agente1)
+# Write outputs to a file
+with open("outputs.txt", "w", encoding="utf-8") as file:
+    for output in outputs:
+        file.write(str(output) + "\n")
