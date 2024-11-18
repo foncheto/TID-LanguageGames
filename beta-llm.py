@@ -1,30 +1,6 @@
 import datetime as time
 from langchain_ollama.llms import OllamaLLM
-from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.feature_extraction.text import TfidfVectorizer
-
-# Define file reading functions
-def read_qa_file(file_path):
-    questions = []
-    correct_answers = []
-    incorrect_answers = []
-
-    with open(file_path, 'r', encoding='utf-8') as file:
-        for line in file:
-            if line.startswith("Question:"):
-                question = line.split("Question:")[1].strip()
-                questions.append(question)
-            elif line.startswith("Correct answers:"):
-                correct = line.split("Correct answers:")[1].strip()
-                correct_answers.append(parse_answers(correct))
-            elif line.startswith("Incorrect answers:"):
-                incorrect = line.split("Incorrect answers:")[1].strip()
-                incorrect_answers.append(parse_answers(incorrect))
-
-    return questions, correct_answers, incorrect_answers
-
-def parse_answers(answers_str):
-    return [answer.strip() for answer in answers_str.split(';')]
+from utils import *
 
 # Tabu memory class to track repeated incorrect answers
 class TabuMemory:
@@ -40,14 +16,6 @@ class TabuMemory:
 
     def contains(self, answer):
         return answer in self.memory
-
-# Heuristic function to evaluate semantic similarity
-def heuristic_similarity(answer, correct_answers):
-    vectorizer = TfidfVectorizer().fit_transform([answer] + correct_answers)
-    vectors = vectorizer.toarray()
-    similarity_scores = cosine_similarity([vectors[0]], vectors[1:])[0]
-    max_similarity = max(similarity_scores)
-    return max_similarity
 
 # Load questions and answers
 file_path = "QA.txt"
@@ -88,7 +56,7 @@ for i, question in enumerate(questions):
             break
 
         # Apply heuristic similarity
-        similarity_score = heuristic_similarity(response, correct_answers[i])
+        similarity_score = compare_responses_2(response, correct_answers[i])
         outputs.append(f"Similarity Score: {similarity_score}")
 
         # Check if answer is acceptable

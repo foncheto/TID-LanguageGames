@@ -1,27 +1,21 @@
 from openai import OpenAI
 import datetime as time
+from utils import *
 
-def read_qa_file(file_path):
-    questions = []
-    correct_answers = []
-    incorrect_answers = []
+# Tabu memory class to track repeated incorrect answers
+class TabuMemory:
+    def __init__(self, max_size=5):
+        self.memory = []
+        self.max_size = max_size
 
-    with open(file_path, 'r', encoding='utf-8') as file:
-        for line in file:
-            if line.startswith("Question:"):
-                question = line.split("Question:")[1].strip()
-                questions.append(question)
-            elif line.startswith("Correct answers:"):
-                correct = line.split("Correct answers:")[1].strip()
-                correct_answers.append(parse_answers(correct))
-            elif line.startswith("Incorrect answers:"):
-                incorrect = line.split("Incorrect answers:")[1].strip()
-                incorrect_answers.append(parse_answers(incorrect))
+    def add(self, answer):
+        if answer not in self.memory:
+            self.memory.append(answer)
+            if len(self.memory) > self.max_size:
+                self.memory.pop(0)  # Limit size by removing oldest entry
 
-    return questions, correct_answers, incorrect_answers
-
-def parse_answers(answers_str):
-    return [answer.strip() for answer in answers_str.split(';')]
+    def contains(self, answer):
+        return answer in self.memory
 
 file_path = "QA.txt"
 questions, correct_answers, incorrect_answers = read_qa_file(file_path)
@@ -29,39 +23,79 @@ questions, correct_answers, incorrect_answers = read_qa_file(file_path)
 
 llm_1 = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")
 llm_2 = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")
+tabu_memory = TabuMemory()
 
 model_1 = "llama-3.2-1b-instruct"
-model_2 = "mistral-7b-instruct-v0.3"
+model_2 = "llama-3.2-3b-instruct"
 
 outputs = []
 
-for i in range(len(questions)):
+# Process each question with iterative language games until correct answer is reached
+max_iterations = 5  # Set a maximum iteration count to avoid infinite loops
+
+for i, question in enumerate(questions):
     date = time.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
     outputs.append(date)
     
-    question = questions[i]
-    correct_answer = correct_answers[i]
     outputs.append(f"Question: {question}")
-    outputs.append(f"Answers: {correct_answer}")
+    outputs.append(f"Answers: {correct_answers[i]}")
 
-    question_prompt = f"Answer the following question in a single brief but complete sentence.\nQuestion: {question}\nAnswer:"
-    llm_2_answer = llm_2.chat.completions.create(messages=[{"role": "user", "content": question_prompt}], model=model_2).choices[0].message
-    outputs.append(f"Answer LLM_2: {llm_2_answer.content}")
+    # Start with LLM2 answering, alternating with each iteration
+    current_llm = llm_2
+    current_model = model_2
 
-    feedback_prompt = f"""
-    We are assessing the quality of answers to the following question: {question}
-    A list of expected answers is: {correct_answer}
-    The proposed answer is: {llm_2_answer.content}
-    Within the context of the question, does the proposed answer mean the same as the expected answer?.
-    """
+    feedback_llm = llm_1
+    feedback_model = model_1
 
-    outputs.append(f"Feedback prompt: {feedback_prompt}")
+    correct = False
+    iteration = 0
 
-    llm_1_feedback = llm_1.chat.completions.create(messages=[{"role": "user", "content": feedback_prompt}], model=model_1).choices[0].message
-    outputs.append(f"Feedback response: {llm_1_feedback.content}")
+    while not correct and iteration < max_iterations:
 
-    llm_2_answer_feedback = llm_2.chat.completions.create(messages=[{"role": "user", "content": llm_1_feedback.content}], model=model_2).choices[0].message
-    outputs.append(f"Feedback response LLM_2: {llm_2_answer_feedback.content}")
+        question_prompt = f"Answer the following question in a single brief but complete sentence.\nQuestion: {question}\nAnswer:"
+        current_llm_answer = current_llm.chat.completions.create(messages=[{"role": "user", "content": question_prompt}], model=current_model).choices[0].message
+        outputs.append(f"Iteration {iteration + 1}, {current_model}: {current_llm_answer.content}")
+
+        # Check if the response is in Tabu memory to avoid known incorrect answers
+        if tabu_memory.contains(current_llm_answer.content):
+            outputs.append("Answer is in Tabu memory, skipping repeated incorrect response.")
+            break
+
+        # Apply heuristic similarity
+        similarity_score = compare_responses_1(current_llm_answer.content, correct_answers[i])
+        outputs.append(f"Similarity Score: {similarity_score}")
+
+        # Check if answer is acceptable
+        threshold = 0.5
+        if similarity_score >= threshold:
+            outputs.append("Answer accepted as correct.")
+            correct = True
+        else:
+            outputs.append("Answer potentially incorrect. Adding to Tabu memory.")
+            tabu_memory.add(current_llm_answer.content)
+
+        feedback_prompt = f"""
+        We are assessing the quality of answers to the following question: {question}
+        A list of expected answers is: {correct_answers[i]}
+        The proposed answer is: {current_llm_answer.content}
+        Within the context of the question, does the proposed answer mean the same as the expected answer?.
+        """
+
+
+        feedback_response = feedback_llm.chat.completions.create(messages=[{"role": "user", "content": feedback_prompt}], model=feedback_model).choices[0].message
+        outputs.append(f"Feedback from {feedback_model}: {feedback_response.content}")
+
+        # Current LLM refines answer based on feedback from feedback LLM
+        refinement_prompt = f"Refine the answer based on the following feedback:\nFeedback: {feedback_response.content}\nRefined Answer:"
+
+        refined_response = current_llm.chat.completions.create(messages=[{"role": "user", "content": refinement_prompt}], model=current_model).choices[0].message
+        outputs.append(f"Refined Response from {current_model}: {refined_response.content}")
+
+        # Switch roles for the next iteration
+        current_llm, feedback_llm = feedback_llm, current_llm
+        current_model, feedback_model = feedback_model, current_model
+        current_llm_answer = refined_response
+        iteration += 1
 
     outputs.append("-------------------------------------------------")
 
