@@ -60,21 +60,19 @@ Los errores son los outputs en los cuales el LLM no cumplio con el formato esper
 | StrategyQA      | 2         | 30.0% | 5.0%   |
 | StrategyQA      | 3         | 27.0% | 11.0%  |
 
-
-
 ## Con juego
-- ECQA:
-  - Score: 76.0%
-  - Score: 74.0%
-  - Score: 74.0%
-  - Score: 75.0%
-- StrategyQA:
-  - Score: 73.0%
-  - Score: 74.0%
-  - Score: 75.0%
-- Commonsense_QA:
-  - Score: 77.0%
-  - Score: 75.0%
+
+| Dataset         | Iteration | Score |
+|-----------------|-----------|-------|
+| ECQA            | 1         | 76.0% |
+| ECQA            | 2         | 74.0% |
+| ECQA            | 3         | 74.0% |
+| ECQA            | 4         | 75.0% |
+| StrategyQA      | 1         | 73.0% |
+| StrategyQA      | 2         | 74.0% |
+| StrategyQA      | 3         | 75.0% |
+| Commonsense_QA  | 1         | 77.0% |
+| Commonsense_QA  | 2         | 75.0% |
 
 * Quizas agregar un debate "falso", si en la primera iteracion llegan todos a consenso
 * Se puede agregar un While cuando no responden en el formato esperado, (En seleccion multiple algunos responden fuera de las letras (A-E), tambien entrar en este caso)
