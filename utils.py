@@ -1,6 +1,9 @@
 import spacy
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
+import re
+import random
+import json
 
 # Load the spaCy language model
 nlp = spacy.load('en_core_web_lg') # 400 MB
@@ -69,3 +72,54 @@ def heuristic_similarity(answer, correct_answers):
     similarity_scores = cosine_similarity([vectors[0]], vectors[1:])[0]
     max_similarity = max(similarity_scores)
     return max_similarity
+
+def clean_response(response):
+    try:
+        json_content = re.search(r'\{.*\}', response, re.DOTALL).group(0)
+        answer_dict = json.loads(json_content)
+        answer = answer_dict["correct_option"][0]
+        explanation = answer_dict["explanation"]
+    except:
+        answer = random.choice(["A", "B", "C", "D", "E"])
+        explanation = "Random answer"
+    
+    return answer, explanation
+
+def get_llm_response(llm, prompt, model):
+    llm_answer = llm.chat.completions.create(
+            messages=[
+                {
+                    "role": "user", 
+                    "content": prompt
+                }
+            ], 
+            model=model).choices[0].message.content
+    return llm_answer
+
+def feedback_prompt_1(answer_1, explanation_1, answer_2, explanation_2):
+    prompt = (
+            f"Don't you think it's {answer_1}, because {explanation_1}, or {answer_2}, since {explanation_2}?"
+            f' Provide your final answer in this format: {{"correct_option": "X", "explanation": "X"}}:'
+        )
+    return prompt
+
+def feedback_prompt_2(answer_1, explanation_1, explanation_2):
+    prompt = (
+            f"Don't you think it's {answer_1}, because {explanation_1} and {explanation_2}?"
+            f' Provide your final answer in this format: {{"correct_option": "X", "explanation": "X"}}:'
+        )
+    return prompt
+
+def get_data_ecqa_and_prompt(row):
+    prompt = (
+            f"I will provide a question and five possible answers. Your task is to select the most correct answer based on the information provided.\n"
+            f"Question: {row['q_text']}\n"
+            f"Options:\n"
+            f"A) {row['q_op1']}\n"
+            f"B) {row['q_op2']}\n"
+            f"C) {row['q_op3']}\n"
+            f"D) {row['q_op4']}\n"
+            f"E) {row['q_op5']}\n"
+            f'Answer only with the correct letter and explanation in this format {{"correct_option": "X", "explanation": "X"}}:'
+        )
+    return prompt, row['q_ans']
