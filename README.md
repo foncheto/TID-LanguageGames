@@ -34,6 +34,7 @@ Los errores son los outputs en los cuales el LLM no cumplio con el formato esper
 | ECQA            | 2         | 73.0% | 9.0% |
 | StrategyQA      | 1         | 32.0% | 6.0% |
 | StrategyQA      | 2         | 36.0% | 2.0% |
+| StrategyQA      | 3         | 33.0% | 3.0% |
 
 ## llama3.1-8b
 
@@ -45,6 +46,7 @@ Los errores son los outputs en los cuales el LLM no cumplio con el formato esper
 | ECQA            | 2         | 72.0% | 2.0% |
 | StrategyQA      | 1         | 41.0% | 4.0% |
 | StrategyQA      | 2         | 37.0% | 8.0% |
+| StrategyQA      | 3         | 37.0% | 5.0% |
 
 ## mistral-7b-instruct
 
@@ -56,7 +58,7 @@ Los errores son los outputs en los cuales el LLM no cumplio con el formato esper
 | ECQA            | 2         | 68.0% | 1.0%   |
 | StrategyQA      | 1         | 29.0% | 8.0%   |
 | StrategyQA      | 2         | 30.0% | 5.0%   |
-
+| StrategyQA      | 3         | 27.0% | 11.0%  |
 
 
 
@@ -68,5 +70,11 @@ Los errores son los outputs en los cuales el LLM no cumplio con el formato esper
   - Score: 75.0%
 - StrategyQA:
   - Score: 73.0%
+  - Score: 74.0%
+  - Score: 75.0%
+- Commonsense_QA:
+  - Score: 77.0%
+  - Score: 75.0%
 
-Quizas agregar un debate "falso", si en la primera iteración llegan a un error.
+* Quizas agregar un debate "falso", si en la primera iteracion llegan todos a consenso
+* Se puede agregar un While cuando no responden en el formato esperado, (En seleccion multiple algunos responden fuera de las letras (A-E), tambien entrar en este caso)
