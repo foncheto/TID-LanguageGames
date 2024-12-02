@@ -73,7 +73,7 @@ def heuristic_similarity(answer, correct_answers):
     max_similarity = max(similarity_scores)
     return max_similarity
 
-def clean_response(response):
+def clean_response_multiple(response):
     try:
         json_content = re.search(r'\{.*\}', response, re.DOTALL).group(0)
         answer_dict = json.loads(json_content)
@@ -81,6 +81,18 @@ def clean_response(response):
         explanation = answer_dict["explanation"]
     except:
         answer = random.choice(["A", "B", "C", "D", "E"])
+        explanation = "Random answer"
+    
+    return answer, explanation
+
+def clean_response_boolean(response):
+    try:
+        json_content = re.search(r'\{.*\}', response, re.DOTALL).group(0)
+        answer_dict = json.loads(json_content)
+        answer = answer_dict["correct_option"]
+        explanation = answer_dict["explanation"]
+    except:
+        answer = random.choice(["Yes", "No"])
         explanation = "Random answer"
     
     return answer, explanation
@@ -123,3 +135,25 @@ def get_data_ecqa_and_prompt(row):
             f'Answer only with the correct letter and explanation in this format {{"correct_option": "X", "explanation": "X"}}:'
         )
     return prompt, row['q_ans']
+
+def get_data_commonsense_qa_and_prompt(row):
+    prompt = (
+            f"I will provide a question and five possible answers. Your task is to select the most correct answer based on the information provided.\n"
+            f"Question: {row['question']}\n"
+            f"Options:\n"
+            f"A) {row['choices']['text'][0]}\n"
+            f"B) {row['choices']['text'][1]}\n"
+            f"C) {row['choices']['text'][2]}\n"
+            f"D) {row['choices']['text'][3]}\n"
+            f"E) {row['choices']['text'][4]}\n"
+            f'Answer only with the correct letter and explanation in this format {{"correct_option": "X", "explanation": "X"}}:'
+        )
+    return prompt, row['answerKey']
+
+def get_data_strategy_qa_and_prompt(row):
+    prompt = (
+            f"I will provide a question, and you must respond with 'Yes' or 'No' and explanation.\n"
+            f"Question: {row['question']}\n"
+            f'Answer only with "Yes" or "No" and explanation in this format {{"correct_option": "X", "explanation": "X"}}:'
+        )
+    return prompt, row['answer']

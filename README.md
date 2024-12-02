@@ -22,37 +22,39 @@ Como puedo usar una taxonomía en vez de cosine similarity para comparar agentes
 
 ## Evaluaciones con datasets sin "juego"
 
+Los errores son los outputs en los cuales el LLM no cumplio con el formato esperado, un error puede sumar al Score, ya que se selecciona de forma aleatoria una respuesta.
+
 ## gemma2-9b
 
-- StrategyQA: 30/100 -> 30%
-
-- ECQA: 75/100 -> 75%
-
-- Commonsense_QA: 69/100 -> 69%
+- Commonsense_QA: 
+    - Score: 71/100 -> 71.0%
+    - Errors: 5/100 -> 5.0%
+- ECQA:
+    - Score: 73/100 -> 73.0%
+    - Errors: 9/100 -> 9.0%
+- StrategyQA:
+    - Score: 32/100 -> 32.0%
+    - Errors: 6/100 -> 6.0%
 
 ## llama3.1-8b
 
-- StrategyQA: 34/100 -> 34%
-
-- ECQA: 68/100 -> 68%
-
-- Commonsense_QA: 79/100 -> 79%
-
+- Commonsense_QA:
+    - Score: 79/100 -> 79.0%
+    - Errors: 0/100 -> 0.0%
+- ECQA:
+    - Score: 67/100 -> 67.0%
+    - Errors: 0/100 -> 0.0%
+- StrategyQA:
+    - Score: 41/100 -> 41.0%
+    - Errors: 4/100 -> 4.0%
 ## mistral-7b-instruct
 
-- StrategyQA: 25/100 -> 25%
-
-- ECQA: 68/100 -> 68%
-
-- Commonsense_QA: 74/100 -> 74%
-
-El dataset que más errores con formato produce es Strategy QA, con 17 en total, el LLM con más errores de formato es Gemma2-9b
-Number of 'X' in dataframe gemma2-9b_commonsense_qa_01-12-2024_17-48-51.csv: 6
-Number of 'X' in dataframe gemma2-9b_ecqa_01-12-2024_17-52-10.csv: 5
-Number of 'X' in dataframe gemma2-9b_strategy_qa_01-12-2024_17-55-19.csv: 8
-Number of 'X' in dataframe llama3.1-8b_commonsense_qa_01-12-2024_17-57-31.csv: 0
-Number of 'X' in dataframe llama3.1-8b_ecqa_01-12-2024_18-00-00.csv: 0
-Number of 'X' in dataframe llama3.1-8b_strategy_qa_01-12-2024_18-04-07.csv: 5
-Number of 'X' in dataframe mistral-7b-instruct_commonsense_qa_01-12-2024_18-07-08.csv: 2
-Number of 'X' in dataframe mistral-7b-instruct_ecqa_01-12-2024_18-09-52.csv: 1
-Number of 'X' in dataframe mistral-7b-instruct_strategy_qa_01-12-2024_18-12-49.csv: 4
+- Commonsense_QA:
+    - Score: 74/100 -> 74.0%
+    - Errors: 3/100 -> 3.0%
+- ECQA:
+    - Score: 67/100 -> 67.0%
+    - Errors: 3/100 -> 3.0%
+- StrategyQA:
+    - Score: 29/100 -> 29.0%
+    - Errors: 8/100 -> 8.0%

@@ -55,11 +55,11 @@ def ecqa_game(n, model_1, model_2, model_3, api_key):
         llm_answer_3 = get_llm_response(llm_3, prompt, model_3)
         
         # Dejar solo el contenido JSON
-        answer_1, explanation_1 = clean_response(llm_answer_1)
+        answer_1, explanation_1 = clean_response_multiple(llm_answer_1)
         print(answer_1, explanation_1)
-        answer_2, explanation_2 = clean_response(llm_answer_2)
+        answer_2, explanation_2 = clean_response_multiple(llm_answer_2)
         print(answer_2, explanation_2)
-        answer_3, explanation_3 = clean_response(llm_answer_3)
+        answer_3, explanation_3 = clean_response_multiple(llm_answer_3)
         print(answer_3, explanation_3)
 
         # Si todas las respuestas son iguales, nos quedamos con esa
@@ -80,9 +80,9 @@ def ecqa_game(n, model_1, model_2, model_3, api_key):
             llm_answer_2_1 = get_llm_response(llm_2, prompt_2, model_2)
             llm_answer_3_1 = get_llm_response(llm_3, prompt_3, model_3)
 
-            answer_1_1, explanation_1_1 = clean_response(llm_answer_1_1)
-            answer_2_1, explanation_2_1 = clean_response(llm_answer_2_1)
-            answer_3_1, explanation_3_1 = clean_response(llm_answer_3_1)
+            answer_1_1, explanation_1_1 = clean_response_multiple(llm_answer_1_1)
+            answer_2_1, explanation_2_1 = clean_response_multiple(llm_answer_2_1)
+            answer_3_1, explanation_3_1 = clean_response_multiple(llm_answer_3_1)
 
             # Si hay consenso, nos quedamos con la respuesta
             if answer_1_1 == answer_2_1 == answer_3_1:
@@ -97,7 +97,7 @@ def ecqa_game(n, model_1, model_2, model_3, api_key):
                 if answer_1_1 == answer_2_1 and answer_2_1 != answer_3_1:
                     prompt_3 = feedback_prompt_2(answer_1_1, explanation_1_1, explanation_2_1)
                     llm_answer_3_2 = get_llm_response(llm_3, prompt_3, model_3)
-                    answer_3_2, explanation_3_2 = clean_response(llm_answer_3_2)
+                    answer_3_2, explanation_3_2 = clean_response_multiple(llm_answer_3_2)
                     # Si ahora hay consenso nos quedamos con esa respuesta
                     if answer_1_1 == answer_3_2:
                         if answer_1_1 in options:
@@ -127,7 +127,7 @@ def ecqa_game(n, model_1, model_2, model_3, api_key):
                 elif answer_1_1 == answer_3_1 and answer_2_1 != answer_3_1:
                     prompt_2 = feedback_prompt_2(answer_1_1, explanation_1_1, explanation_3_1)
                     llm_answer_2_2 = get_llm_response(llm_2, prompt_2, model_2)
-                    answer_2_2, explanation_2_2 = clean_response(llm_answer_2_2)
+                    answer_2_2, explanation_2_2 = clean_response_multiple(llm_answer_2_2)
                     # Si ahora hay consenso nos quedamos con esa respuesta
                     if answer_1_1 == answer_2_2:
                         if answer_1_1 in options:
@@ -157,7 +157,7 @@ def ecqa_game(n, model_1, model_2, model_3, api_key):
                 elif answer_2_1 == answer_3_1 and answer_2_1 != answer_1_1:
                     prompt_1 = feedback_prompt_2(answer_2_1, explanation_2_1, explanation_3_1)
                     llm_answer_1_2 = get_llm_response(llm_1, prompt_1, model_1)
-                    answer_1_2, explanation_1_2 = clean_response(llm_answer_1_2)
+                    answer_1_2, explanation_1_2 = clean_response_multiple(llm_answer_1_2)
                     # Si ahora hay consenso nos quedamos con esa respuesta
                     if answer_2_1 == answer_1_2:
                         if answer_2_1 in options:
@@ -194,9 +194,9 @@ def ecqa_game(n, model_1, model_2, model_3, api_key):
                     llm_answer_2_2 = get_llm_response(llm_2, prompt_2, model_2)
                     llm_answer_3_2 = get_llm_response(llm_3, prompt_3, model_3)
 
-                    answer_1_2, explanation_1_2 = clean_response(llm_answer_1_2)
-                    answer_2_2, explanation_2_2 = clean_response(llm_answer_2_2)
-                    answer_3_2, explanation_3_2 = clean_response(llm_answer_3_2)
+                    answer_1_2, explanation_1_2 = clean_response_multiple(llm_answer_1_2)
+                    answer_2_2, explanation_2_2 = clean_response_multiple(llm_answer_2_2)
+                    answer_3_2, explanation_3_2 = clean_response_multiple(llm_answer_3_2)
 
                     # Si se llega a un consenso, se elige esa respuesta
                     if answer_1_2 == answer_2_2 == answer_3_2:
@@ -228,7 +228,7 @@ def ecqa_game(n, model_1, model_2, model_3, api_key):
             prompt_3 = feedback_prompt_2(answer_1, explanation_1, explanation_2)
 
             llm_answer_3_1 = get_llm_response(llm_3, prompt_3, model_3)
-            answer_3_1, explanation_3_1 = clean_response(llm_answer_3_1)
+            answer_3_1, explanation_3_1 = clean_response_multiple(llm_answer_3_1)
 
             # Si cambia de opinion el que pensaba distinto
             if answer_1 == answer_3_1:
@@ -242,8 +242,8 @@ def ecqa_game(n, model_1, model_2, model_3, api_key):
                 llm_answer_1_1 = get_llm_response(llm_1, prompt, model_1)
                 llm_answer_2_1 = get_llm_response(llm_2, prompt, model_2)
 
-                answer_1_1, explanation_1_1 = clean_response(llm_answer_1_1)
-                answer_2_1, explanation_2_1 = clean_response(llm_answer_2_1)
+                answer_1_1, explanation_1_1 = clean_response_multiple(llm_answer_1_1)
+                answer_2_1, explanation_2_1 = clean_response_multiple(llm_answer_2_1)
 
                 answers = [answer_1, answer_2, answer_3, answer_1_1, answer_2_1, answer_3_1]
                 explanations = [explanation_1, explanation_2, explanation_3, explanation_1_1, explanation_2_1, explanation_3_1]
@@ -266,7 +266,7 @@ def ecqa_game(n, model_1, model_2, model_3, api_key):
             prompt_2 = feedback_prompt_2(answer_1, explanation_1, explanation_3)
 
             llm_answer_2_1 = get_llm_response(llm_2, prompt_2, model_2)
-            answer_2_1, explanation_2_1 = clean_response(llm_answer_2_1)
+            answer_2_1, explanation_2_1 = clean_response_multiple(llm_answer_2_1)
 
             if answer_1 == answer_2_1:
                 if answer_1 in options:
@@ -278,8 +278,8 @@ def ecqa_game(n, model_1, model_2, model_3, api_key):
                 llm_answer_1_1 = get_llm_response(llm_1, prompt, model_1)
                 llm_answer_3_1 = get_llm_response(llm_3, prompt, model_3)
 
-                answer_1_1, explanation_1_1 = clean_response(llm_answer_1_1)
-                answer_3_1, explanation_3_1 = clean_response(llm_answer_3_1)
+                answer_1_1, explanation_1_1 = clean_response_multiple(llm_answer_1_1)
+                answer_3_1, explanation_3_1 = clean_response_multiple(llm_answer_3_1)
 
                 answers = [answer_1, answer_2, answer_3, answer_1_1, answer_2_1, answer_3_1]
                 explanations = [explanation_1, explanation_2, explanation_3, explanation_1_1, explanation_2_1, explanation_3_1]
@@ -302,7 +302,7 @@ def ecqa_game(n, model_1, model_2, model_3, api_key):
             prompt_1 = feedback_prompt_2(answer_2, explanation_2, explanation_3)
 
             llm_answer_1_1 = get_llm_response(llm_1, prompt_1, model_1)
-            answer_1_1, explanation_1_1 = clean_response(llm_answer_1_1)
+            answer_1_1, explanation_1_1 = clean_response_multiple(llm_answer_1_1)
 
             if answer_2 == answer_1_1:
                 if answer_2 in options:
@@ -314,8 +314,8 @@ def ecqa_game(n, model_1, model_2, model_3, api_key):
                 llm_answer_2_1 = get_llm_response(llm_2, prompt, model_2)
                 llm_answer_3_1 = get_llm_response(llm_3, prompt, model_3)
 
-                answer_2_1, explanation_2_1 = clean_response(llm_answer_2_1)
-                answer_3_1, explanation_3_1 = clean_response(llm_answer_3_1)
+                answer_2_1, explanation_2_1 = clean_response_multiple(llm_answer_2_1)
+                answer_3_1, explanation_3_1 = clean_response_multiple(llm_answer_3_1)
 
                 answers = [answer_1, answer_2, answer_3, answer_1_1, answer_2_1, answer_3_1]
                 explanations = [explanation_1, explanation_2, explanation_3, explanation_1_1, explanation_2_1, explanation_3_1]
