@@ -1,0 +1,431 @@
+Question:  0
+INITIAL ANSWERS
+Y Genghis Khan had a vast empire and is estimated to have fathered hundreds of children. This, combined with his widespread conquests, means a significant number of people today likely carry his Y-chromosome. Julius Caesar, while influential, had a more limited impact on population genetics.
+A Random answer
+Y This is due to a study that analyzed the Y-chromosome of modern males and found that about 16 million men living today can trace their lineage back to Genghis Khan.
+ANSWER 3 AND 1 ARE EQUAL, ASKING 2
+Y This is due to a study that analyzed the Y-chromosome of modern males and found that about 16 million men living today can trace their lineage back to Genghis Khan, who had a significant impact on population genetics through his widespread conquests and numerous offspring.
+2 CHANGED HIS MIND, CHOOSING THAT
+Question:  1
+INITIAL ANSWERS
+N The Police is a band, not a law enforcement agency. Band members do not have the legal authority to make arrests.
+Y In the United Kingdom, where The Police originated, police officers are authorized to make lawful arrests. However, the term 'The Police' in this context refers to the band, not actual law enforcement officers. If we consider the band members as 'police' in a fictional or humorous sense, then yes, they could perform lawful arrests in that context. But in reality, only trained and authorized law enforcement officers can make lawful arrests.
+N Members of The Police are police officers themselves, but they do not have inherent additional powers beyond their formal roles. Arresting powers comes from their role as law enforcement officials within the police force.
+ANSWER 3 AND 1 ARE EQUAL, ASKING 2
+N Members of The Police are police officers themselves, but they do not have inherent additional powers beyond their formal roles. Arresting powers come from their role as law enforcement officials within the police force. And The Police is a band, not a law enforcement agency. Band members do not have the legal authority to make arrests.
+2 CHANGED HIS MIND, CHOOSING THAT
+Question:  2
+INITIAL ANSWERS
+N Monoamine oxidase (MAO) inhibitors are a type of medication used to treat depression, but they are serious drugs that should only be taken under the supervision of a doctor. Eating a candy bar containing MAO inhibitors would be dangerous and ineffective in treating depression.
+N Monoamine Oxidase (MAO) inhibitors are a type of medication used to treat depression, but they are not typically found in candy bars. Even if they were, consuming MAO inhibitors in a candy bar could be dangerous due to potential interactions with other foods and medications. A candy bar would not be an effective or safe way to help a depressed friend.
+N Monoamine Oxidase inhibitors (MAOIs) are a type of medication used to treat depression. However, it is not safe or appropriate to give someone MAOIs in the form of food, such as a candy bar, due to serious side effects that could occur if the person consumes certain foods or substances while taking them.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  3
+INITIAL ANSWERS
+Y Dogs have been domesticated for thousands of years and are trained to respond to various stimuli, including bells. Grey seals, on the other hand, are wild animals and are not typically trained to respond to human-made sounds like bells.
+Y Dogs are generally more responsive to auditory cues, including bells, due to their domestication and selective breeding for responsiveness to human commands. Grey seals, on the other hand, are wild animals with a different auditory system and learning history.
+N Dogs, being land animals, are not typically trained to respond to bells like seals who live primarily in water are trained to respond to hand signals or bells due to their aquatic environment.
+ANSWER 1 AND 2 ARE EQUAL, ASKING 3
+B Random answer
+NO CONSENSUS, CHOOSING MOST COMMON ANSWER
+ANSWERS: ['Y', 'Y', 'N']
+Question:  4
+INITIAL ANSWERS
+Y The pound sterling is the official currency of the United Kingdom and is widely traded internationally. Its value fluctuates based on economic factors, but it is generally considered a valuable currency.
+Y The pound sterling is the official currency of the United Kingdom and is widely recognized and accepted globally, which contributes to its value. Its value can fluctuate based on economic factors, but it remains a valuable currency.
+Y 'Pound Sterling' is the official currency of the United Kingdom, and like all established currencies, it holds value in both domestic and international transactions.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  5
+INITIAL ANSWERS
+N While shrimp scampi itself doesn't inherently contain plastic, there's a possibility of plastic contamination throughout the supply chain. This could include plastic packaging for the shrimp, plastic utensils used in preparation, or even microplastics present in the environment that could end up in the shrimp's diet.
+N Shrimp scampi may contain plastic due to microplastics in the seafood itself or from the cooking process, such as using plastic utensils or storing food in plastic containers. However, it's worth noting that some restaurants and cooks take precautions to minimize exposure to plastic.
+N Shrimp scampi is typically prepared using added ingredients, such as pasta, garlic, butter, lemon juice, parsley, and white wine. While no plastic is meant to be intentionally added to the dish itself, cross-contamination from packaging or kitchen utensils could potentially introduce traces of plastic.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  6
+INITIAL ANSWERS
+N Rede Globo is a Brazilian television network, and while some anchors may learn other languages, it's unlikely that they all speak Chinese.
+N The anchors on Rede Globo are Brazilian and typically speak Portuguese, not Chinese.
+N 'Rede Globo' is a Brazilian television network, therefore, their anchors typically do not speak Chinese.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  7
+INITIAL ANSWERS
+N The Albany, New York metropolitan area is significantly larger than the Albany, Georgia metropolitan area. It's highly unlikely that Albany, Georgia will reach a population of 100,000 before Albany, New York.
+N The Albany in Georgia has a population of around 77,000, while the Albany in New York has a population of around 98,000. However, this information may not be up-to-date and is subject to change. The actual outcome may vary based on current and future demographic trends.
+N Albany, Georgia has a current population of approximately 77,000 people, while Albany, New York has a population of about 97,956 as of recent data. Therefore, it is likely that Albany in New York will maintain or increase its population size before Albany in Georgia reaches 100,000 residents.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  8
+INITIAL ANSWERS
+N The production budget for a Boeing 737 is significantly higher than the box office receipts of the Wonder Woman (2017) film.
+N The box office receipts of the 2017 film Wonder Woman are not related to the cost of a Boeing 737, as they are two completely unrelated entities. The film's budget and box office earnings are used for movie production and distribution, while a Boeing 737 is an aircraft with its own manufacturing costs.
+N 'Wonder Woman' (2017 film) box office receipts would not be used for purchasing a Boeing 737 airplane due to the completely separate nature of the entertainment industry and the aircraft manufacturing industry.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  9
+INITIAL ANSWERS
+Y The official language of Saint Vincent and the Grenadines is English.
+Y The official language of Saint Vincent and the Grenadines is English, which is a result of the country's historical ties with the United Kingdom. English is widely spoken and used in government, education, and daily life.
+Y The official language of Saint Vincent and the Grenadines is English. It is derived from British colonial influence.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  10
+INITIAL ANSWERS
+N Petco primarily sells pet-related products, not electronics like Casio products.
+N Petco primarily sells pet-related products and services, and Casio products are not typically found in their stores. Casio products are usually found in electronics or music stores.
+N Petco primarily sells pet supplies, not electronics like Casio products.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  11
+INITIAL ANSWERS
+N The Space Race was a competition between the United States and the Soviet Union to achieve milestones in space exploration, not a physical relay race.
+N The Space Race involved launching spacecraft and satellites into orbit, not a relay race with batons. The focus was on space exploration and technological advancements rather than athletic competition.
+N The Space Race was a competition between the United States and the Soviet Union to advance in space travel. Relay batons are used in sports, not space exploration.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  12
+INITIAL ANSWERS
+Y Christmas trees are typically evergreen, meaning they retain their needles year-round. Deciduous trees, on the other hand, shed their leaves seasonally.
+N Christmas trees are typically evergreen trees, which means they keep their leaves year-round and do not shed them seasonally like deciduous trees do. Examples of evergreen Christmas trees include fir and spruce trees.
+Y Christmas trees, most commonly firs, pines, and spruces, are evergreens. Deciduous trees are those that lose their leaves annually.
+ANSWER 3 AND 1 ARE EQUAL, ASKING 2
+Y Christmas trees, such as firs, pines, and spruces, are typically evergreen, retaining their needles year-round, which differentiates them from deciduous trees that shed their leaves seasonally.
+2 CHANGED HIS MIND, CHOOSING THAT
+Question:  13
+INITIAL ANSWERS
+N Biochemistry focuses on the chemical processes within and relating to living organisms. Gluons are fundamental particles that mediate the strong nuclear force, which governs interactions within the atomic nucleus. This is a realm of particle physics, not biochemistry.
+N Biochemistry is the study of the chemical processes and substances that occur within living organisms. Gluons, on the other hand, are elementary particles that hold quarks together to form protons and neutrons, and are a part of particle physics. Therefore, biochemistry does not study gluons.
+N Biochemistry primarily focuses on the chemistry of biological macromolecules such as proteins, nucleic acids, lipids, and carbohydrates. Gluons are fundamental particles that carry the strong force between quarks in particle physics, not typically part of biochemistry.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  14
+INITIAL ANSWERS
+N Landowners in the Kingdom of Hungary did not directly elect their rulers. The throne was hereditary, passing down through the Árpád dynasty and later other royal families. Landowners, however, held significant political power and influence through their participation in the Diet, which had the power to approve laws and taxes.
+Y In the Kingdom of Hungary, landowners and nobles played a significant role in electing their rulers, particularly during the medieval period. The Hungarian monarchs were often chosen through a process of election by the nobility and clergy.
+N Landowners did not elect their rulers in the Kingdom of Hungary. The monarchy was hereditary, passing from father to son or another male relative according to Salic law until 1301, when it became elective for a short period. After that, it returned to being hereditary.
+ANSWER 3 AND 1 ARE EQUAL, ASKING 2
+N Landowners in the Kingdom of Hungary did not directly elect their rulers, as the monarchy was primarily hereditary, passing down through royal families, and landowners held influence through the Diet.
+2 CHANGED HIS MIND, CHOOSING THAT
+Question:  15
+INITIAL ANSWERS
+N Nancy Pelosi is a strong supporter of abortion rights and has consistently advocated for access to safe and legal abortion. She has never publicly denounced abortion.
+N Nancy Pelosi is a Democrat and has generally supported reproductive rights, including access to abortion. She has not publicly denounced abortion, and her stance aligns with the Democratic Party's position on the issue.
+N Nancy Pelosi is pro-choice, which suggests she does not denounce abortion since she supports the choice of individuals to have an abortion.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  16
+INITIAL ANSWERS
+Y There are more Friday the 13th movies than Dragon Ball shows and movies combined.
+N The Dragon Ball franchise has a large number of shows and movies, including Dragon Ball, Dragon Ball Z, Dragon Ball GT, Dragon Ball Super, and various films. This is significantly more than the 13 projects in the Friday the 13th franchise.
+Y Dragon Ball shows and movies do not have as many projects as the Friday the 13th franchise, which includes multiple films, TV series, video games, comics, and other media spanning several decades.
+ANSWER 3 AND 1 ARE EQUAL, ASKING 2
+Y The statement is correct, as the Friday the 13th franchise has more projects across various media than the Dragon Ball franchise, making it the franchise with the most projects.
+2 CHANGED HIS MIND, CHOOSING THAT
+Question:  17
+INITIAL ANSWERS
+N Students graduating in 2017 would have been born after 9/11 occurred in 2001. 
+N A student of the class of 2017 would be aged around 16-17 years old during the attacks, and most likely have been exposed to information about 9/11 through their education, media, or personal discussions. As a result, it is unlikely for them to have amnesia about the event.
+Y A student of the class of 2017 would have been born after the events of September 11, 2001, so they would not personally remember these events.
+ANSWER 1 AND 2 ARE EQUAL, ASKING 3
+N Students graduating in 2017 were born after the September 11 attacks in 2001. Therefore, they cannot have amnesia about the event as they were not present during that time.
+3 CHANGED HIS MIND, CHOOSING THAT
+Question:  18
+INITIAL ANSWERS
+N It's impossible to definitively say which of the Seven Deadly Sins is the most prevalent.  The concept of sin and its prevalence is subjective and varies greatly across cultures, religions, and individual beliefs.
+N While greed is a significant and destructive sin, it is often debated which of the Seven Deadly Sins is the most prevalent. However, many scholars and theologians argue that pride is the most prevalent, as it is often seen as the root of many other sins, including greed.
+D Random answer
+ANSWER 1 AND 2 ARE EQUAL, ASKING 3
+D Random answer
+NO CONSENSUS, CHOOSING MOST COMMON ANSWER
+ANSWERS: ['N', 'N']
+Question:  19
+INITIAL ANSWERS
+N Hot reading involves using publicly available information to appear psychic. A psychic who admits to this practice is essentially admitting to deception, making them untrustworthy.
+N A psychic who admits to hot reading is not trustworthy because hot reading involves using information gathered from the client or their environment to make predictions, which undermines the concept of genuine psychic abilities. It suggests that the readings are based on observation and deduction rather than supernatural knowledge.
+N A psychic who admits to hot reading, which means they gather information about a client through observation or public information, rather than actual psychic abilities, is not trustworthy as their predictions may be based on manipulation rather than genuine psychic ability.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  20
+INITIAL ANSWERS
+N The average number of peas in a pod is not a fixed value and varies greatly depending on the variety of pea and growing conditions.  It's highly unlikely that the average number of peas in a pod would be enough to represent a billion.
+N The average number of peas in a pod is not enough to represent a billion, as it is typically around 5-6 peas per pod. A billion would require significantly more pods.
+N The number of peas in an average pod is typically fewer than what is required to write out a billion (which requires numerous commas), so the answer is no.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  21
+INITIAL ANSWERS
+D Random answer
+N Leila George is an Australian actress, and while height can be a factor in modeling, it's not the only consideration. Many models come in various heights, and Leila George's height is not publicly known, but she has appeared in various acting roles, indicating her suitability for the entertainment industry rather than modeling specifically.
+N Leila George is taller than the average height for female models. Hence, she doesn't lack the height to be a model.
+ANSWER 2 AND 3 ARE EQUAL, ASKING 1
+A Random answer
+NO CONSENSUS, CHOOSING MOST COMMON ANSWER
+ANSWERS: ['N', 'N']
+Question:  22
+INITIAL ANSWERS
+Y Dustin Hoffman is Jewish.
+N Dustin Hoffman is an American actor, and as his heritage is mostly of Jewish descent but from non Israeli ethnic groups (such as Ashkenazi Jews), he would not be considered one of the B'nei Yisrael, which refers specifically to the descendants of the Israelites who were given the Torah at Mount Sinai.
+N Dustin Hoffman was born Jewish but he is not a B'nei Yisrael, which is a term used to refer to the direct descendants of the twelve tribes of Israel according to tradition.
+ANSWER 2 AND 3 ARE EQUAL, ASKING 1
+D Random answer
+NO CONSENSUS, CHOOSING MOST COMMON ANSWER
+ANSWERS: ['Y', 'N', 'N']
+Question:  23
+INITIAL ANSWERS
+N While McDonald's is known for less healthy options, there are salads and other lighter choices on their menu that could fit into a balanced diet.
+Y If you were on a diet, it would likely be recommended to skip lunch at McDonald's due to the high calorie and fat content of their menu items.
+Y Most meals at McDonald's are high in calories, fat, and sodium which could prevent someone on a diet from reaching their weight loss goals. Skipping lunch altogether is not always the healthiest approach; instead one could choose lower-calorie options like a salad or grilled chicken.
+ANSWER 2 AND 3 ARE EQUAL, ASKING 1
+Y It is likely recommended to skip lunch at McDonald's on a diet due to the high calorie, fat, and sodium content of their menu items, which could hinder weight loss goals. While skipping meals entirely isn't always the healthiest, choosing lower-calorie options at McDonald's is difficult, making it more sensible to skip the meal altogether.
+1 CHANGED HIS MIND, CHOOSING THAT
+Question:  24
+INITIAL ANSWERS
+N The Powerpuff Girls are fictional characters from a cartoon and do not exist in the real world. Therefore, they could not attend a real-world institution like Camden Military Academy.
+A Random answer
+N [The Camden Military Academy is a fictional military academy from the film Cadet Kelly, not connected to the world of The Powerpuff Girls. Therefore, it is not feasible for The Powerpuff Girls to attend.]
+ANSWER 3 AND 1 ARE EQUAL, ASKING 2
+N The Powerpuff Girls are fictional characters and cannot attend a real-world institution like Camden Military Academy.
+2 CHANGED HIS MIND, CHOOSING THAT
+Question:  25
+INITIAL ANSWERS
+N Mount Fuji is located on the island of Honshu, which is separated from the Sea of Japan by the Japanese mainland.
+B Random answer
+N Mount Fuji is located on the island of Honshu, which is part of Japan. The Sea of Japan is to the west. Therefore, the top of Mount Fuji would not stick out of the Sea of Japan.
+ANSWER 3 AND 1 ARE EQUAL, ASKING 2
+N Mount Fuji is located on the island of Honshu, which is separated from the Sea of Japan by the Japanese mainland, so the top of Mount Fuji would not stick out of the Sea of Japan.
+2 CHANGED HIS MIND, CHOOSING THAT
+Question:  26
+INITIAL ANSWERS
+Y Uninsured individuals often face higher out-of-pocket costs for medical procedures like CT scans, making them more likely to decline due to financial constraints.
+Y An uninsured person may be more likely to decline a CT scan due to the high cost associated with it, which could be a significant financial burden for them. In contrast, an insured person would likely have a lower out-of-pocket cost or no cost at all, making it more feasible for them to undergo the procedure.
+Y An uninsured person might be more likely to decline a CT scan due to the potential cost, as they would have to pay out-of-pocket for the service.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  27
+INITIAL ANSWERS
+N The Donatello crucifix was identified in 2020, but it was not life-size. It is a small, devotional crucifix.
+Y The Donatello crucifix was identified as life-size in 2020, confirming its original intended scale.
+N 'Donatello' is a famous sculptor known for various works, including the bronze 'Horseman' and helping create the marble pulpit in San Lorenzo cathedral. However, his famous carved wooden crucifix is housed at San Lorenzo church in Florence, Italy, which is significantly smaller than life-size.
+ANSWER 3 AND 1 ARE EQUAL, ASKING 2
+N The Donatello crucifix is a small, devotional crucifix, not life-size.
+2 CHANGED HIS MIND, CHOOSING THAT
+Question:  28
+INITIAL ANSWERS
+N No, Disneyland Paris is not the largest Disney resort. Walt Disney World Resort in Florida is the largest.
+N Disneyland Paris is not the largest Disney resort. The largest Disney resort is the Walt Disney World Resort in Florida, which covers an area of approximately 25,000 acres.
+N 'Disneyland Paris' is not the largest Disney resort because 'Disney World Resort', located in Bay Lake, Florida, United States, comprises four theme parks spread across a much larger area.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  29
+INITIAL ANSWERS
+Y Yes, an altered keyboard layout could be beneficial for someone with fine motor control issues.  A different layout might reduce strain, allow for larger keys, or incorporate ergonomic design features that make typing more comfortable and accessible.
+Y An altered keyboard layout can help individuals with fine motor control issues by reducing finger movement and alternating hand use, potentially improving typing speed and accuracy.
+Y Individuals with fine motor control issues may benefit from an altered keyboard layout, such as one designed for people with disabilities, due to modified key sizes and configurations that promote easier typing and reduced strain on fingers.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  30
+INITIAL ANSWERS
+Y Adam Sandler frequently uses recurring characters and inside jokes in his movies, and both Cole Spouse and the scuba man doll are elements from his past films. It's highly likely he would reference them.
+Y Adam Sandler has previously referenced children's items in his comedy, so it's plausible he would also reference a scuba man doll alongside a Cole Sprouse reference due to their pre-adult collaborative ventures with the show 'The Suite Life of...' franchise.
+N Adam Sandler is not known for routinely making references to Cole Spouse or scuba man dolls in his movies, as they are not common pop culture figures.
+ANSWER 1 AND 2 ARE EQUAL, ASKING 3
+B Random answer
+NO CONSENSUS, CHOOSING MOST COMMON ANSWER
+ANSWERS: ['Y', 'Y', 'N']
+Question:  31
+INITIAL ANSWERS
+N Warthogs are wild animals native to Africa and are not typically found on Broadway, which is a district in New York City known for its theaters.
+N There is no known species of warthog that has a presence on Broadway, which is a street in Manhattan, New York City. However, it's possible that there may be a performance or production featuring warthogs on Broadway.
+N Broadway is famous for theaters, not wildlife such as warthogs.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  32
+INITIAL ANSWERS
+Y Elsa from Frozen is an ice princess.
+Y Disney's Frozen features the character of Elsa, also known as the Ice Queen or Ice Princess, who has magical powers to create and control ice and snow.
+Y Disney has Elsa from Frozen, who is an ice queen, not specifically a princess but often referred to as one.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  33
+INITIAL ANSWERS
+Y While geography focuses on spatial patterns and relationships, biochemistry plays a role in understanding processes like soil formation, climate change (e.g., carbon cycles), and the distribution of plant and animal life, all of which are relevant to geography.
+Y A geographer might use biochemistry in their work, especially in the subfield of biogeography or environmental geography, where they study the interactions between living organisms and their environment. Biochemistry can be applied to understand ecological processes, such as nutrient cycling and plant physiology, which are essential for understanding environmental systems.
+N 
+Geographers primarily study the Earth's landscapes, people, and environments. While understanding certain chemical processes can be beneficial, biochemistry - which involves the study of biological molecules - is typically not a core part of geography.
+ANSWER 1 AND 2 ARE EQUAL, ASKING 3
+Y Geographers can use biochemistry as a tool to study various aspects related to their field such as soil formation (which involves chemical reactions), climate change (carbon cycles), distribution of plant and animal life (ecology), etc. Hence Biochemistry is relevant to Geography.
+3 CHANGED HIS MIND, CHOOSING THAT
+Question:  34
+INITIAL ANSWERS
+N Compact discs were not invented until the late 20th century, long after George Washington's death in 1799.
+N Compact discs were not invented until the 1980s, while George Washington's speeches took place in the 18th century. Therefore, it was not possible to record his speeches live to a compact disc.
+N 'Compact discs' were not invented until the 1980s, long after George Washington had passed away. Therefore, his speeches could not have been recorded on CDs.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  35
+INITIAL ANSWERS
+N Lil Jon's top-ranked Billboard song was 'Get Low' featuring Ying Yang Twins, not a member of The Lox.
+N Lil Jon's top-ranked Billboard song was 'Get Low', a collaboration with Ying Yang Twins, not a member of The Lox.
+N 'Get Low,' Lil Jon's top-ranked song on the Billboard Hot 100, did not feature any member of The Lox as collaborators.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  36
+INITIAL ANSWERS
+Y Black salt, also known as Kala Namak, has a distinct sulfurous smell due to the presence of hydrogen sulfide.
+Y Black salt, also known as kala namak, has a strong sulfur-like flavor and aroma due to its high sulfur content. This is a characteristic that distinguishes it from regular salt and contributes to its distinct taste and smell.
+Y Black salt, also known as kala namak, has a strong sulfurous scent due to its volcanic origin. This scent can impart a unique flavor to the dish but can also be noticeable.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  37
+INITIAL ANSWERS
+Y A broadcast from Spirit, especially if it were verifiable and significant, would be a major news story in 2020.  It would be a groundbreaking event with global implications.
+Y In 2020, the concept of spirit communication and the possibility of a broadcast from the afterlife would likely be considered a sensational and extraordinary claim, potentially sparking significant public interest and media attention, making it a newsworthy event.
+N Spirit, as it is generally understood, refers to a non-physical entity such as a deceased person or divine being. As such, an authentic broadcast from Spirit would be inconsistent with our current scientific understanding of the world. Furthermore, claiming that such an event occurred without substantiating evidence would likely undermine credibility in journalism.
+ANSWER 1 AND 2 ARE EQUAL, ASKING 3
+Y The explanation provided aligns with the prompt as it describes why such an event (A broadcast from Spirit) would indeed be newsworthy in 2020.
+3 CHANGED HIS MIND, CHOOSING THAT
+Question:  38
+INITIAL ANSWERS
+N Miami is located in Florida, which is on the southeastern coast of the United States. The West Coast includes states like California, Oregon, and Washington.
+N Miami is a city located on the southeastern coast of the United States, not on the American West Coast.
+N 'Miami' is a city located on the Southeast coast of the United States, specifically in Florida.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  39
+INITIAL ANSWERS
+Y Robert Wadlow was the tallest man in recorded history, standing at 8 feet 11 inches. Frankenstein's monster, as depicted in Mary Shelley's novel, is described as being significantly taller than an average human.  Therefore, it is plausible that Wadlow could see Frankenstein's monster's bald spot from above.
+Y Robert Wadlow, also known as the Giant of Illinois, was a man with an extraordinary height of around 272 cm (8 ft 11 in). Frankenstein's monster is typically depicted as being around 2 meters (6.6 ft) tall. Since Robert Wadlow was taller than Frankenstein's monster, he could hypothetically see over the monster and potentially see its bald spot from above.
+C Random answer
+ANSWER 1 AND 2 ARE EQUAL, ASKING 3
+Y Robert Wadlow being taller than the typical depiction of Frankenstein's monster means he could potentially have seen over the iconic creature and theoretically seen its bald spot from above.
+3 CHANGED HIS MIND, CHOOSING THAT
+Question:  40
+INITIAL ANSWERS
+N The tibia is a bone in the leg and not a piece of equipment required to play hockey or win the Stanley Cup.
+N The tibia is a bone in the human leg and has no relation to winning the Stanley Cup, which is awarded to the champion of the National Hockey League (NHL) playoffs.
+N (The tibia is a bone of the human leg which has no relevance to ice hockey, specifically winning the Stanley Cup.)
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  41
+INITIAL ANSWERS
+Y Ethics professors might teach a class on Cezanne if the focus is on the ethical implications of art, such as the artist's relationship to their subject matter, the role of art in society, or the ethics of collecting and displaying art.
+N An ethics professor typically teaches classes on moral philosophy, ethics, and related subjects. While Cezanne's artwork may be discussed in a broader art history or cultural studies context, it is unlikely to be the primary focus of an ethics class.
+N Ethics professors typically do not teach classes on specific artists such as Cezanne, but rather focus on ethical theories and principles.
+ANSWER 2 AND 3 ARE EQUAL, ASKING 1
+N An ethics professor is more likely to teach about moral philosophy and ethical theories, not specific artists like Cezanne.
+1 CHANGED HIS MIND, CHOOSING THAT
+Question:  42
+INITIAL ANSWERS
+N Horchata is made from rice, but it also includes milk, sugar, cinnamon, and sometimes other spices. Simply adding water to rice pudding won't create horchata.
+N Horchata is a traditional Mexican drink made from rice, cinnamon, and vanilla, typically served cold. Adding water to rice pudding does not make it horchata as the ingredients and preparation methods are different.
+N Rice pudding is not horchata. Horchata is a rice drink that originated from Spain but has become popular in Mexico and other Spanish-speaking countries, usually prepared with rice, water, sugar, cinnamon, and almonds.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  43
+INITIAL ANSWERS
+N The Swiss Guard is a military unit that protects the Vatican City, while the Virginia General Assembly is the legislative body of the state of Virginia. They are separate entities in different countries.
+N The Swiss Guard is a military unit responsible for the safety and security of the Vatican City, whereas the Virginia General Assembly is a legislative body in the state of Virginia. The two are unrelated in terms of function, location, and purpose.
+N The Swiss Guard is a military unit tasked with guarding components of the Apostolic Palace, Vatican City. They do not have jurisdiction over acts of governance within countries like the United States or Virginia.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  44
+INITIAL ANSWERS
+N While nickel allergy can cause skin reactions, it typically manifests as rashes, itching, or redness, not a greenish or grayish discoloration like a zombie.
+Y Nickel exposure can cause contact dermatitis, which may lead to skin discoloration. However, the specific color change associated with zombies is often greenish or grayish due to decomposition in fiction. In reality, nickel exposure might result in a more typical skin reaction such as redness and inflammation rather than a zombie-like color change.
+N Nickel isn't directly associated with causing skin discoloration resembling that of a zombie. Itchiness, rashes, or dermatitis are more common symptoms of nickel sensitivity.
+ANSWER 3 AND 1 ARE EQUAL, ASKING 2
+N Nickel isn't directly associated with causing skin discoloration resembling that of a zombie. Itchiness, rashes, or dermatitis are more common symptoms of nickel sensitivity.
+2 CHANGED HIS MIND, CHOOSING THAT
+Question:  45
+INITIAL ANSWERS
+Y Amish communities generally avoid wearing modern clothing and accessories, emphasizing simplicity and humility. A Dolce & Gabbana suit, being a luxury brand known for its elaborate designs, would be highly incongruous with Amish values and likely lead to social disapproval.
+Y The Amish community is known for their conservative and traditional values, which often include simple and modest clothing. Dolce & Gabbana suits are typically associated with luxury, fashion, and modernity, which would likely be seen as contradictory to the Amish way of life. Therefore, a person wearing such a suit might be shunned by their Amish cousins due to the perceived conflict between their values.
+Y Dolce & Gabbana is an Italian luxury fashion house that designs casual, formal and leather goods for men and women. Amish people reject much of modern technology, including clothing from major brands like Dolce & Gabbana, as they believe in plainness, simplicity, functional Clothing typically handmade using traditional techniques
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  46
+INITIAL ANSWERS
+N While the Illuminati card game has a cult following and is still available, it's not considered mainstream or widely popular compared to other card games.
+D Random answer
+N 'Illuminati' is not as popular as it once was. It was very popular in the 1990s due to its unique theme, combining humor with strategy gameplay, but over time interest has waned.
+ANSWER 3 AND 1 ARE EQUAL, ASKING 2
+E Random answer
+NO CONSENSUS, CHOOSING MOST COMMON ANSWER
+ANSWERS: ['N', 'N']
+Question:  47
+INITIAL ANSWERS
+Y Strawberries can be infested with various types of worms, such as strawberry root weevils and wireworms, which can damage the plant and fruit. These are different from the intestinal worms that can affect dogs.
+Y Strawberries can be infested with pests like strawberry weevils, which are similar to the worms found in dogs. However, these pests are insects and not worms in the classical sense. They lay eggs inside the fruit, causing damage and potentially spreading disease.
+N Strawberries are not susceptible to nematodes or parasitic worms like dogs. However, they can be attacked by vine weevils (a type of beetle) which may make them appear wormy.
+ANSWER 1 AND 2 ARE EQUAL, ASKING 3
+M While strawberries can indeed be affected by various insect pests such as strawberry weevils that lay eggs inside fruits causing damage, these insect larvae are not considered 'worms'. Classical worm infestations would refer to parasitic intestinal helminthiasis affecting vertebrates including dogs but not plants or fruits.
+NO CONSENSUS, CHOOSING MOST COMMON ANSWER
+ANSWERS: ['Y', 'Y', 'N', 'M']
+Question:  48
+INITIAL ANSWERS
+N While menthol is a flavoring used in various products, it's not traditionally associated with Thanksgiving meals or celebrations.
+N Menthol is not directly associated with Thanksgiving. However, it is often associated with cough drops, which are sometimes consumed during the holiday season to soothe colds and congestion, a common issue during the winter months when Thanksgiving typically takes place.
+N 'Menthol' is not commonly associated with 'Thanksgiving'. Menthol is a compound that provides a cool, minty flavor, which is used in products like toothpaste, candy, and cigarettes. 'Thanksgiving', on the other hand, is an annual holiday celebrating harvest and giving thanks.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  49
+INITIAL ANSWERS
+Y Solanum melongena is the scientific name for eggplant, and the term 'eggplant' is commonly used in Mumbai.
+N In Mumbai, Solanum melongena is commonly referred to as 'brinjal', which is a more widely used term in Indian English.
+Y Solanum melongena, also known as brinjal in India, is commonly referred to as an eggplant in many regions including Mumbai due to the plant being part of the nightshade family.
+ANSWER 3 AND 1 ARE EQUAL, ASKING 2
+C Random answer
+NO CONSENSUS, CHOOSING MOST COMMON ANSWER
+ANSWERS: ['Y', 'N', 'Y']
+Question:  50
+INITIAL ANSWERS
+N Lying after taking an oath in a court of law is perjury, which is a serious crime.  Oaths are taken to ensure the truthfulness of testimony.
+N In a court of law, taking an oath is a solemn promise to tell the truth. Lying after taking an oath is considered perjury, which is a serious offense and can lead to severe consequences, including imprisonment.
+N Lying under oath in a court of law constitutes perjury. It is illegal and can result in severe penalties, including prosecution, incarceration, fines, or damage to one's reputation.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  51
+INITIAL ANSWERS
+N While art is included in many US education systems, it often receives less funding and attention compared to core subjects like math, science, and English. This can result in limited access to art programs, fewer qualified art teachers, and less emphasis on artistic development.
+N While art is included in the US education system, it often takes a backseat to core subjects like math and reading. Many schools struggle to provide adequate funding and resources for art programs, leading to a lack of emphasis on arts education.
+N In the US education system, while art is often offered as an elective subject, it is not consistently prioritized compared to core subjects such as mathematics, science, English, and social studies.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  52
+INITIAL ANSWERS
+Y Some soups, especially those high in solids or with ingredients that are difficult to digest, may not be suitable for a liquid diet.
+Y While on a liquid diet, some types of soup may not be suitable due to their thick or chunky consistency. Soups with solid ingredients like beans, vegetables, or meat may be difficult to consume as liquids. However, clear broths and pureed soups are often allowed.
+A Random answer
+ANSWER 1 AND 2 ARE EQUAL, ASKING 3
+Y Soups high in solids or with ingredients that are difficult to digest may not be suitable for a liquid diet because they contain solid particles which contradict the definition of a liquid diet.
+3 CHANGED HIS MIND, CHOOSING THAT
+Question:  53
+INITIAL ANSWERS
+N An Iwato scale is a 12-tone scale, so it could be used in a 12-tone technique composition.
+N An Iwato scale is a type of Japanese musical scale, but it's not inherently incompatible with twelve-tone technique. Twelve-tone technique involves the use of all 12 half-steps within an octave in a specific order, and an Iwato scale can be adapted or modified to fit within this framework. However, it would likely require significant modification to fit the strict requirements of twelve-tone technique.
+Y The Iwato scale is a traditional Japanese five-note scale, which does not have the necessary twelve tones for a twelve-tone technique composition.
+ANSWER 1 AND 2 ARE EQUAL, ASKING 3
+Y An Iwato scale could potentially be used within the framework of a 12-tone composition since it includes all twelve notes of the chromatic scale (albeit with some duplications). However, as noted in your statement, significant modifications would likely be necessary to make it comply with the strict rules of dodecaphonic music or Schoenberg's twelve-tone technique.
+NO CONSENSUS, CHOOSING MOST COMMON ANSWER
+ANSWERS: ['N', 'N', 'Y', 'Y']
+Question:  54
+INITIAL ANSWERS
+N The Gulf of Finland is a relatively shallow and brackish sea. The conditions there, including fluctuating salinity and water temperature, would not be ideal for the long-term preservation of a large ship like the Titanic.
+N The Titanic sank in the North Atlantic Ocean, approximately 370 miles (600 km) off the coast of Newfoundland, Canada. The Gulf of Finland is located in the Baltic Sea, between Estonia and Finland. The conditions at the bottom of the Gulf of Finland are not suitable for preserving the Titanic, as it is a shallow and relatively warm body of water compared to the North Atlantic, which would lead to faster degradation of the wreck.
+N The Titanic sank in the North Atlantic Ocean, not in the Gulf of Finland. The shipping conditions are very different, so it would not be preserved similarly.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  55
+INITIAL ANSWERS
+N Hepatitis is a disease that affects the liver, and dandelions are plants, not animals. Plants do not have livers.
+N Hepatitis is a liver disease that affects animals and humans, caused by viral infections or other factors. Dandelions are plants, and they do not have a liver or a similar organ that could be affected by hepatitis.
+N 'Hepatitis' is a liver infection that affects animals, including humans. Dandelions are flowering plants; they do not have livers so cannot get hepatitis.
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  56
+INITIAL ANSWERS
+N Switzerland remained neutral during World War II, while Portugal was an ally of the Allied powers in the Portuguese Colonial War (1961-1974).
+N Portugal's role in the Portuguese Colonial War (1961-1974) was different from Switzerland's involvement in WWII. While Switzerland maintained neutrality during WWII, Portugal actively participated in the war on the side of NATO and its allies, particularly against communist movements in Africa.
+B Random answer
+ANSWER 1 AND 2 ARE EQUAL, ASKING 3
+D Random answer
+NO CONSENSUS, CHOOSING MOST COMMON ANSWER
+ANSWERS: ['N', 'N']
+Question:  57
+INITIAL ANSWERS
+N Ugly Betty has 131 episodes across 4 seasons.  Even watching several episodes a day, a week wouldn't be enough time to finish the entire series.
+N Ugly Betty has a total of 85 episodes across its four seasons. Watching every episode in a week would require an average of around 12 hours per day, which is not feasible or realistic.
+Y Ugly Betty has 100 episodes in total. Watching one episode per day would allow you to complete it within a week.
+ANSWER 1 AND 2 ARE EQUAL, ASKING 3
+I The given information states that Ugly Betty has a total of 85 episodes across four seasons. Watching every episode in a week would require an average of around approximately 12 hours per day (with no breaks) to watch the whole series, which is not feasible or realistic.
+NO CONSENSUS, CHOOSING MOST COMMON ANSWER
+ANSWERS: ['N', 'N', 'Y', 'I']
+Question:  58
+INITIAL ANSWERS
+Y Pict languages are believed to be unrelated to the Germanic languages that Old English belongs to.  Therefore, a Pict would likely not understand Old English.
+N Although the Picts were a pre-English culture in Scotland, Old English was spoken in England. The Picts spoke a Celtic language, but they may have been familiar with Old English due to cultural exchange and trade. However, it's unlikely they would be confused by it, as it would be a distinct language from their own.
+Y The Picts were a group of Celtic peoples who inhabited northern Scotland before the Anglo-Saxon invasions around the 5th century. Old English, as it developed from the Anglo-Saxon languages, would not have been spoken by the Picts.
+ANSWER 3 AND 1 ARE EQUAL, ASKING 2
+Y The Picts were a group of Celtic peoples who inhabited northern Scotland before the Anglo-Saxon invasions around the 5th century. Old English, as it developed from the Anglo-Saxon languages, would not have been spoken by the Picts and Pict languages are believed to be unrelated to the Germanic languages that Old English belongs to. Therefore, a Pict would likely not understand Old English.
+2 CHANGED HIS MIND, CHOOSING THAT
+Question:  59
+INITIAL ANSWERS
+N The Louisiana Purchase was made in 1803, long before the invention of bitcoin.
+N The Louisiana Purchase was made in 1803 with the United States dollar, not bitcoin, as bitcoin did not exist until more than a century later.
+N [The Louisiana Purchase was completed in May 1803] and it predates Bitcoin, which was first introduced in a whitepaper by Satoshi Nakamoto in October 2008]
+ALL ANSWERS ARE EQUAL, CHOOSING THAT
+Question:  60
+INITIAL ANSWERS
+N 

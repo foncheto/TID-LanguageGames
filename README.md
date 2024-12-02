@@ -26,35 +26,47 @@ Los errores son los outputs en los cuales el LLM no cumplio con el formato esper
 
 ## gemma2-9b
 
-- Commonsense_QA: 
-    - Score: 71/100 -> 71.0%
-    - Errors: 5/100 -> 5.0%
-- ECQA:
-    - Score: 73/100 -> 73.0%
-    - Errors: 9/100 -> 9.0%
-- StrategyQA:
-    - Score: 32/100 -> 32.0%
-    - Errors: 6/100 -> 6.0%
+| Dataset         | Iteration | Score |Errors|
+|-----------------|-----------|-------|------|
+| Commonsense_QA  | 1         | 71.0% | 5.0% |
+| Commonsense_QA  | 2         | 73.0% | 4.0% |
+| ECQA            | 1         | 73.0% | 9.0% |
+| ECQA            | 2         | 73.0% | 9.0% |
+| StrategyQA      | 1         | 32.0% | 6.0% |
+| StrategyQA      | 2         | 36.0% | 2.0% |
 
 ## llama3.1-8b
 
-- Commonsense_QA:
-    - Score: 79/100 -> 79.0%
-    - Errors: 0/100 -> 0.0%
-- ECQA:
-    - Score: 67/100 -> 67.0%
-    - Errors: 0/100 -> 0.0%
-- StrategyQA:
-    - Score: 41/100 -> 41.0%
-    - Errors: 4/100 -> 4.0%
+| Dataset         | Iteration | Score |Errors|
+|-----------------|-----------|-------|------|
+| Commonsense_QA  | 1         | 79.0% | 0.0% |
+| Commonsense_QA  | 2         | 79.0% | 0.0% |
+| ECQA            | 1         | 67.0% | 0.0% |
+| ECQA            | 2         | 72.0% | 2.0% |
+| StrategyQA      | 1         | 41.0% | 4.0% |
+| StrategyQA      | 2         | 37.0% | 8.0% |
+
 ## mistral-7b-instruct
 
-- Commonsense_QA:
-    - Score: 74/100 -> 74.0%
-    - Errors: 3/100 -> 3.0%
+| Dataset         | Iteration | Score | Errors |
+|-----------------|-----------|-------|--------|
+| Commonsense_QA  | 1         | 74.0% | 3.0%   |
+| Commonsense_QA  | 2         | 71.0% | 4.0%   |
+| ECQA            | 1         | 67.0% | 3.0%   |
+| ECQA            | 2         | 68.0% | 1.0%   |
+| StrategyQA      | 1         | 29.0% | 8.0%   |
+| StrategyQA      | 2         | 30.0% | 5.0%   |
+
+
+
+
+## Con juego
 - ECQA:
-    - Score: 67/100 -> 67.0%
-    - Errors: 3/100 -> 3.0%
+  - Score: 76.0%
+  - Score: 74.0%
+  - Score: 74.0%
+  - Score: 75.0%
 - StrategyQA:
-    - Score: 29/100 -> 29.0%
-    - Errors: 8/100 -> 8.0%
+  - Score: 73.0%
+
+Quizas agregar un debate "falso", si en la primera iteración llegan a un error.
