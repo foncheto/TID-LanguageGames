@@ -19,48 +19,45 @@ Como puedo usar una taxonomía en vez de cosine similarity para comparar agentes
 - https://github.com/sklarman/wordnet-distance
 - https://en-word.net/lemma/demo
 
-
 ## Evaluaciones con datasets sin "juego"
 
 Los errores son los outputs en los cuales el LLM no cumplio con el formato esperado, un error puede sumar al Score, ya que se selecciona de forma aleatoria una respuesta.
 
 ## gemma2-9b
 
-| Dataset         | Iteration | Score |Errors|
-|-----------------|-----------|-------|------|
-| Commonsense_QA  | 1         | 71.0% | 5.0% |
-| Commonsense_QA  | 2         | 73.0% | 4.0% |
-| ECQA            | 1         | 73.0% | 9.0% |
-| ECQA            | 2         | 73.0% | 9.0% |
-| StrategyQA      | 1         | 32.0% | 6.0% |
-| StrategyQA      | 2         | 36.0% | 2.0% |
+| Dataset        | Iteration | Score | Errors |
+| -------------- | --------- | ----- | ------ |
+| Commonsense_QA | 1         | 71.0% | 5.0%   |
+| Commonsense_QA | 2         | 73.0% | 4.0%   |
+| ECQA           | 1         | 73.0% | 9.0%   |
+| ECQA           | 2         | 73.0% | 9.0%   |
+| StrategyQA     | 1         | 32.0% | 6.0%   |
+| StrategyQA     | 2         | 36.0% | 2.0%   |
 
 ## llama3.1-8b
 
-| Dataset         | Iteration | Score |Errors|
-|-----------------|-----------|-------|------|
-| Commonsense_QA  | 1         | 79.0% | 0.0% |
-| Commonsense_QA  | 2         | 79.0% | 0.0% |
-| ECQA            | 1         | 67.0% | 0.0% |
-| ECQA            | 2         | 72.0% | 2.0% |
-| StrategyQA      | 1         | 41.0% | 4.0% |
-| StrategyQA      | 2         | 37.0% | 8.0% |
+| Dataset        | Iteration | Score | Errors |
+| -------------- | --------- | ----- | ------ |
+| Commonsense_QA | 1         | 79.0% | 0.0%   |
+| Commonsense_QA | 2         | 79.0% | 0.0%   |
+| ECQA           | 1         | 67.0% | 0.0%   |
+| ECQA           | 2         | 72.0% | 2.0%   |
+| StrategyQA     | 1         | 41.0% | 4.0%   |
+| StrategyQA     | 2         | 37.0% | 8.0%   |
 
 ## mistral-7b-instruct
 
-| Dataset         | Iteration | Score | Errors |
-|-----------------|-----------|-------|--------|
-| Commonsense_QA  | 1         | 74.0% | 3.0%   |
-| Commonsense_QA  | 2         | 71.0% | 4.0%   |
-| ECQA            | 1         | 67.0% | 3.0%   |
-| ECQA            | 2         | 68.0% | 1.0%   |
-| StrategyQA      | 1         | 29.0% | 8.0%   |
-| StrategyQA      | 2         | 30.0% | 5.0%   |
-
-
-
+| Dataset        | Iteration | Score | Errors |
+| -------------- | --------- | ----- | ------ |
+| Commonsense_QA | 1         | 74.0% | 3.0%   |
+| Commonsense_QA | 2         | 71.0% | 4.0%   |
+| ECQA           | 1         | 67.0% | 3.0%   |
+| ECQA           | 2         | 68.0% | 1.0%   |
+| StrategyQA     | 1         | 29.0% | 8.0%   |
+| StrategyQA     | 2         | 30.0% | 5.0%   |
 
 ## Con juego
+
 - ECQA:
   - Score: 76.0%
   - Score: 74.0%
@@ -70,3 +67,5 @@ Los errores son los outputs en los cuales el LLM no cumplio con el formato esper
   - Score: 73.0%
 
 Quizas agregar un debate "falso", si en la primera iteración llegan a un error.
+
+Clustering
