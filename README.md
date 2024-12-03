@@ -69,3 +69,53 @@ Los errores son los outputs en los cuales el LLM no cumplio con el formato esper
 Quizas agregar un debate "falso", si en la primera iteración llegan a un error.
 
 Clustering
+| Dataset | Iteration | Score |Errors|
+|-----------------|-----------|-------|------|
+| Commonsense_QA | 1 | 71.0% | 5.0% |
+| Commonsense_QA | 2 | 73.0% | 4.0% |
+| ECQA | 1 | 73.0% | 9.0% |
+| ECQA | 2 | 73.0% | 9.0% |
+| StrategyQA | 1 | 32.0% | 6.0% |
+| StrategyQA | 2 | 36.0% | 2.0% |
+| StrategyQA | 3 | 33.0% | 3.0% |
+
+## llama3.1-8b
+
+| Dataset        | Iteration | Score | Errors |
+| -------------- | --------- | ----- | ------ |
+| Commonsense_QA | 1         | 79.0% | 0.0%   |
+| Commonsense_QA | 2         | 79.0% | 0.0%   |
+| ECQA           | 1         | 67.0% | 0.0%   |
+| ECQA           | 2         | 72.0% | 2.0%   |
+| StrategyQA     | 1         | 41.0% | 4.0%   |
+| StrategyQA     | 2         | 37.0% | 8.0%   |
+| StrategyQA     | 3         | 37.0% | 5.0%   |
+
+## mistral-7b-instruct
+
+| Dataset        | Iteration | Score | Errors |
+| -------------- | --------- | ----- | ------ |
+| Commonsense_QA | 1         | 74.0% | 3.0%   |
+| Commonsense_QA | 2         | 71.0% | 4.0%   |
+| ECQA           | 1         | 67.0% | 3.0%   |
+| ECQA           | 2         | 68.0% | 1.0%   |
+| StrategyQA     | 1         | 29.0% | 8.0%   |
+| StrategyQA     | 2         | 30.0% | 5.0%   |
+| StrategyQA     | 3         | 27.0% | 11.0%  |
+
+## Con juego
+
+| Dataset        | Iteration | Score |
+| -------------- | --------- | ----- |
+| ECQA           | 1         | 76.0% |
+| ECQA           | 2         | 74.0% |
+| ECQA           | 3         | 74.0% |
+| ECQA           | 4         | 75.0% |
+| StrategyQA     | 1         | 73.0% |
+| StrategyQA     | 2         | 74.0% |
+| StrategyQA     | 3         | 75.0% |
+| Commonsense_QA | 1         | 77.0% |
+| Commonsense_QA | 2         | 75.0% |
+
+- Quizas agregar un debate "falso", si en la primera iteracion llegan todos a consenso
+- Se puede agregar un While cuando no responden en el formato esperado, (En seleccion multiple algunos responden fuera de las letras (A-E), tambien entrar en este caso)
