@@ -25,36 +25,54 @@ Los errores son los outputs en los cuales el LLM no cumplio con el formato esper
 
 ## gemma2-9b
 
-| Dataset        | Iteration | Score | Errors |
-| -------------- | --------- | ----- | ------ |
-| Commonsense_QA | 1         | 71.0% | 5.0%   |
-| Commonsense_QA | 2         | 73.0% | 4.0%   |
-| ECQA           | 1         | 73.0% | 9.0%   |
-| ECQA           | 2         | 73.0% | 9.0%   |
-| StrategyQA     | 1         | 32.0% | 6.0%   |
-| StrategyQA     | 2         | 36.0% | 2.0%   |
+| Dataset         | Iteration | Score |Errors|
+|-----------------|-----------|-------|------|
+| Commonsense_QA  | 1         | 71.0% | 5.0% |
+| Commonsense_QA  | 2         | 73.0% | 4.0% |
+| Commonsense_QA  | 3         | 69.0% | 0.0% |
+| ECQA            | 1         | 73.0% | 9.0% |
+| ECQA            | 2         | 73.0% | 9.0% |
+| ECQA            | 3         | 79.0% | 2.0% |
+| ECQA            | 4         | 75.0% | 0.0% | # 0% de error con nuevo método
+| StrategyQA      | 1         | 32.0% | 6.0% |
+| StrategyQA      | 2         | 36.0% | 2.0% |
+| StrategyQA      | 3         | 33.0% | 3.0% |
+| StrategyQA      | 4         | 31.0% | 0.0% |
 
 ## llama3.1-8b
 
-| Dataset        | Iteration | Score | Errors |
-| -------------- | --------- | ----- | ------ |
-| Commonsense_QA | 1         | 79.0% | 0.0%   |
-| Commonsense_QA | 2         | 79.0% | 0.0%   |
-| ECQA           | 1         | 67.0% | 0.0%   |
-| ECQA           | 2         | 72.0% | 2.0%   |
-| StrategyQA     | 1         | 41.0% | 4.0%   |
-| StrategyQA     | 2         | 37.0% | 8.0%   |
+| Dataset         | Iteration | Score |Errors|
+|-----------------|-----------|-------|------|
+| Commonsense_QA  | 1         | 79.0% | 0.0% |
+| Commonsense_QA  | 2         | 79.0% | 0.0% |
+| Commonsense_QA  | 3         | 79.0% | 0.0% |
+| ECQA            | 1         | 67.0% | 0.0% |
+| ECQA            | 2         | 72.0% | 2.0% |
+| ECQA            | 3         | 68.0% | 0.0% |
+| ECQA            | 4         | 68.0% | 0.0% | # 0% de error con nuevo método
+| StrategyQA      | 1         | 41.0% | 4.0% |
+| StrategyQA      | 2         | 37.0% | 8.0% |
+| StrategyQA      | 3         | 37.0% | 5.0% |
+| StrategyQA      | 4         | 33.0% | 3.0% |
 
 ## mistral-7b-instruct
 
-| Dataset        | Iteration | Score | Errors |
-| -------------- | --------- | ----- | ------ |
-| Commonsense_QA | 1         | 74.0% | 3.0%   |
-| Commonsense_QA | 2         | 71.0% | 4.0%   |
-| ECQA           | 1         | 67.0% | 3.0%   |
-| ECQA           | 2         | 68.0% | 1.0%   |
-| StrategyQA     | 1         | 29.0% | 8.0%   |
-| StrategyQA     | 2         | 30.0% | 5.0%   |
+| Dataset         | Iteration | Score | Errors |
+|-----------------|-----------|-------|--------|
+| Commonsense_QA  | 1         | 74.0% | 3.0%   |
+| Commonsense_QA  | 2         | 71.0% | 4.0%   |
+| Commonsense_QA  | 3         | 72.0% | 0.0%   |
+| ECQA            | 1         | 67.0% | 3.0%   |
+| ECQA            | 2         | 68.0% | 1.0%   |
+| ECQA            | 3         | 69.0% | 0.0%   |
+| ECQA            | 4         | 70.0% | 0.0%   | # 0% de error con nuevo método
+| StrategyQA      | 1         | 29.0% | 8.0%   |
+| StrategyQA      | 2         | 30.0% | 5.0%   |
+| StrategyQA      | 3         | 27.0% | 11.0%  |
+| StrategyQA      | 4         | 27.0% | 0.0%  |
+
+* Iteración 3 de ECQA se realizó preguntando más veces si existía error de formato.
+* Iteración 4 de ECQA, 3 de Commonsense y 4 de Strategy se daba el feedback de error de formato + la forma correcta de contestar.
 
 ## Con juego
 

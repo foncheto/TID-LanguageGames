@@ -20,11 +20,19 @@ def commonsense_qa_eval(n, model, api_key):
     for i in range (0, n):
         print("Question: ", i)
 
+        max_error = 5
+
         prompt, q_ans = get_data_commonsense_qa_and_prompt(ds["train"][i])
 
         llm_answer = get_llm_response(llm, prompt, model)
         
         answer, explanation = clean_response_multiple(llm_answer)
+
+        while explanation == "Random answer" and max_error > 0:
+            prompt = f"Wrong format, please provide the answer in the following format: {{\"correct_option\": \"X\", \"explanation\": \"X\"}}:"
+            llm_answer = get_llm_response(llm, prompt, model)
+            answer, explanation = clean_response_multiple(llm_answer)
+            max_error -= 1
 
         if explanation == "Random answer":
             error_count += 1
@@ -50,6 +58,8 @@ def ecqa_eval(n, model, api_key):
 
         row = ds["train"][i]
 
+        max_error = 5
+
         prompt, q_ans = get_data_ecqa_and_prompt(row)
 
         options = {
@@ -64,6 +74,12 @@ def ecqa_eval(n, model, api_key):
         
         answer, explanation = clean_response_multiple(llm_answer)
 
+        while explanation == "Random answer" and max_error > 0:
+            prompt = f"Wrong format, please provide the answer in the following format: {{\"correct_option\": \"X\", \"explanation\": \"X\"}}:"
+            llm_answer = get_llm_response(llm, prompt, model)
+            answer, explanation = clean_response_multiple(llm_answer)
+            max_error -= 1
+        
         if explanation == "Random answer":
             error_count += 1
 
@@ -95,6 +111,8 @@ def strategy_qa_eval(n, model, api_key):
     for i in range (0, n):
         print("Question: ", i)
 
+        max_error = 5
+
         # Get the question and answer
         prompt, answer = get_data_strategy_qa_and_prompt(ds["test"][i])
 
@@ -102,6 +120,12 @@ def strategy_qa_eval(n, model, api_key):
         llm_answer = get_llm_response(llm, prompt, model)
         
         answer, explanation = clean_response_boolean(llm_answer)
+        
+        while explanation == "Random answer" and max_error > 0:
+            prompt = f"Wrong format, please provide the answer in the following format: {{\"correct_option\": \"X\", \"explanation\": \"X\"}}:"
+            llm_answer = get_llm_response(llm, prompt, model)
+            answer, explanation = clean_response_boolean(llm_answer)
+            max_error -= 1
         
         if explanation == "Random answer":
             error_count += 1
@@ -120,9 +144,9 @@ api_key = os.getenv("API_KEY")
 
 for model in models:
     print(f"Model: {model}")
-    #score, error = commonsense_qa_eval(n, model, api_key)
-    #print(f"Score: {sum(score)}/{n} ({sum(score)/n*100}%)")
-    #print(f"Errors: {error} ({error/n*100}%)")
+    score, error = commonsense_qa_eval(n, model, api_key)
+    print(f"Score: {sum(score)}/{n} ({sum(score)/n*100}%)")
+    print(f"Errors: {error} ({error/n*100}%)")
     #score, error = ecqa_eval(n, model, api_key)
     #print(f"Score: {sum(score)}/{n} ({sum(score)/n*100}%)")
     #print(f"Errors: {error} ({error/n*100}%)")
