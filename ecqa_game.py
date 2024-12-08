@@ -2,11 +2,7 @@ from collections import Counter
 from openai import OpenAI
 from datasets import load_dataset
 from utils import *
-from dotenv import load_dotenv
 import datetime as time
-import os
-
-load_dotenv()
 
 def ecqa_game(n, model_1, model_2, model_3, api_key):
     # Inicializar modelos solo una vez
@@ -150,12 +146,3 @@ def ecqa_game(n, model_1, model_2, model_3, api_key):
                 f.write(str(output) + "\n")
 
     return score
-
-n = 100
-model_1 = "gemma2-9b"
-model_2 = "llama3.1-8b"
-model_3 = "mistral-7b-instruct"
-api_key = os.getenv("API_KEY")
-
-score = ecqa_game(n, model_1, model_2, model_3, api_key)
-print(f"Score: {sum(score)}/{n} ({sum(score)/n*100}%)")
