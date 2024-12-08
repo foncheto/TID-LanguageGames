@@ -97,7 +97,7 @@ def clean_response_boolean(response):
     
     return answer, explanation
 
-def get_llm_response(llm, prompt, model):
+def get_llm_response(llm, prompt, model, times):
     llm_answer = llm.chat.completions.create(
             messages=[
                 {
@@ -106,6 +106,14 @@ def get_llm_response(llm, prompt, model):
                 }
             ], 
             model=model).choices[0].message.content
+    if times > 0:
+        try:
+            json_content = re.search(r'\{.*\}', llm_answer, re.DOTALL).group(0)
+            answer_dict = json.loads(json_content)
+            answer = answer_dict["correct_option"]
+            explanation = answer_dict["explanation"]
+        except:
+            return get_llm_response(llm, prompt, model, times - 1)
     return llm_answer
 
 def feedback_prompt_1(answer_1, explanation_1, answer_2, explanation_2):
@@ -157,3 +165,22 @@ def get_data_strategy_qa_and_prompt(row):
             f'Answer only with "Yes" or "No" and explanation in this format {{"correct_option": "X", "explanation": "X"}}:'
         )
     return prompt, row['answer']
+
+def get_key_ecqa(row, answer):
+    options = {
+            "A": row['q_op1'],
+            "B": row['q_op2'],
+            "C": row['q_op3'],
+            "D": row['q_op4'],
+            "E": row['q_op5']
+        }
+
+    for option, text in options.items():
+        if text == answer:
+            return option
+        
+def fake_conflict_prompt():
+    prompt = (
+        f"I’m not entirely convinced that your answer is correct. Could there be a possibility that one of the other options is more appropriate? Please reconsider your answer and provide your final choice in this format: {{'correct_option': 'X', 'explanation': 'X'}}:"
+    )
+    return prompt
