@@ -5,8 +5,11 @@ from games.race_middle_game import race_middle_game as rmiddle_game
 from games.race_high_game import race_high_game as rhigh_game
 # Import Evaluations
 from evaluations.strategy_qa_evaluation import strategy_qa_eval as sqa_eval
+from evaluations.commonsense_qa_evaluation import commonsense_qa_eval as cqa_eval
 from evaluations.race_high_evaluation import race_high_evaluation as rhigh_eval
 from evaluations.race_middle_evaluation import race_middle_evaluation as rmiddle_eval
+from evaluations.arc_challenge_evaluation import arc_challenge_evaluation as arc_chall_eval
+from evaluations.arc_easy_evaluation import arc_easy_evaluation as arc_easy_eval
 
 # Import Generals
 from dotenv import load_dotenv
@@ -95,12 +98,39 @@ def game(log_filename):
 
 def evaluation():
     n = 10
-    model = "gemma2-9b"
+    models = ["gemma2-9b", "llama3.1-8b", "mistral-7b-instruct"]
     api_key = os.getenv("API_KEY")
 
-    score, error = rmiddle_eval(n, model, api_key)
-    print(f"Score RACE Middle QA: {sum(score)}/{n} ({sum(score)/n*100}%)")
-    print(f"Errors: {error} ({error/n*100}%)")
+    for model in models:
+        # Run Strategy QA Evaluation
+        score, error = sqa_eval(n, model, api_key)
+        print(f"Score Strategy QA: {sum(score)}/{n} ({sum(score)/n*100}%)")
+        print(f"Errors: {error} ({error/n*100}%)")
+
+        # Run CQA Evaluation
+        score, error = cqa_eval(n, model, api_key)
+        print(f"Score RACE Middle QA: {sum(score)}/{n} ({sum(score)/n*100}%)")
+        print(f"Errors: {error} ({error/n*100}%)")
+
+        # Run Race Middle Evaluation
+        score, error = rmiddle_eval(n, model, api_key)
+        print(f"Score Race-Middle: {sum(score)}/{n} ({sum(score)/n*100}%)")
+        print(f"Errors: {error} ({error/n*100}%)")
+        
+        # Run Race High Evaluation
+        score, error = rhigh_eval(n, model, api_key)
+        print(f"Score Race-Hard: {sum(score)}/{n} ({sum(score)/n*100}%)")
+        print(f"Errors: {error} ({error/n*100}%)")
+
+        # Run ARC Challenge Evaluation
+        score, error = arc_chall_eval(n, model, api_key)
+        print(f"Score ARC-Challege: {sum(score)}/{n} ({sum(score)/n*100}%)")
+        print(f"Errors: {error} ({error/n*100}%)")
+
+        # Run ARC Easy Evaluation
+        score, error = arc_easy_eval(n, model, api_key)
+        print(f"Score ARC-Easy: {sum(score)}/{n} ({sum(score)/n*100}%)")
+        print(f"Errors: {error} ({error/n*100}%)")
 
 def main():
     log_filename = setup_main_logging()

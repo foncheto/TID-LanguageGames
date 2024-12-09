@@ -18,7 +18,7 @@ def arc_easy_evaluation(n, model, api_key):
 
         row = ds["validation"][i]
 
-        prompt, correct_answer = get_data_race_and_prompt(row)
+        prompt, correct_answer = get_data_arc_and_prompt(row)
 
         llm_answer = get_llm_response(llm, prompt, model, 5)
         answer, explanation = clean_response_multiple(llm_answer)
