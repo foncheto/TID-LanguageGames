@@ -1,0 +1,97 @@
+QUESTION N°0
+How many people lost their lives in this accident?
+The correct answer is: C
+Initial answers:
+C: The text states that 'killing **1,** **5** **/7** people'.
+C: According to the text, 1,517 people lost their lives in the accident.
+C: Over  1,
+500   people lost their lives
+Consensus reached on iteration N°1
+------------------------------------------------------------
+QUESTION N°1
+Which of the following about icebergs is TRUE?
+The correct answer is: B
+Initial answers:
+B: The text states that 'A single iceberg can become stuck many times on its journey southward'. It also mentions that 'the process can take several years.'
+B: According to the text, a single iceberg can become stuck many times on its journey southward, and the process can take several years, which supports the idea that an iceberg can stop for some time during its travel.
+A: Icebergs stay in place and cannot move until they melt enough or a high tide frees them
+Conflict detected: 1 and 2 are equal, 3 is different
+Resolving conflict for LLM 3
+New answer:
+B: [B] This option best aligns with the information provided in the text. The details about multiple instances of a single iceberg getting stuck on its journey southward, and how these instances might occur over several years suggest a notion where an iceberg may stop for some time during its travel.
+Consensus reached on iteration N°2
+------------------------------------------------------------
+QUESTION N°2
+. What is the article mainly about?
+The correct answer is: D
+Initial answers:
+D: The article focuses specifically on new research suggesting that an unusually strong lunar pull caused higher tides which pushed more icebergs into harm’s way for ships like *Titanic*.
+D: The article mainly discusses the moon's role in the sinking of the Titanic, as suggested by a team of scientists led by Donald Olson.
+D: The article mainly discusses and explores 'the lunar connection' or 'the moon's role', specifically investigating how it might have influenced or contributed (not necessarily as solely causative factor) towards an unusually large numberoficebergs getting intothe pathofTitanicafteralunar effect magnifiedthe tides.
+Consensus reached on iteration N°1
+------------------------------------------------------------
+QUESTION N°3
+From the passage,we know that  _  .
+The correct answer is: B
+Initial answers:
+B: The passage states multiple times that Billy is blind and cannot see.
+B: The passage explicitly states that Billy is blind, which means he can't see.
+B: According to the passage provided 'But he can’t see what orange looks like.', it follows that Billy cannot see
+Consensus reached on iteration N°1
+------------------------------------------------------------
+QUESTION N°4
+How did Billy's mother help him?
+The correct answer is: C
+Initial answers:
+C: The text states "After that Billy’s mother began talking to him describing things she saw..." 
+C: Billy's mother began talking to him, describing things she saw, which helped him learn about the world around him.
+C: By describing everything to him
+Consensus reached on iteration N°1
+------------------------------------------------------------
+QUESTION N°5
+When did Billy begin teaching himself computer programming?
+The correct answer is: A
+Initial answers:
+A: The text states that Billy began teaching himself computer programming when he was just seven years old.
+A: According to the text, Billy began teaching himself computer programming when he was just seven years old.
+A: According to the context provided, Billy began teaching himself computer programming when he was just seven years old.
+Consensus reached on iteration N°1
+------------------------------------------------------------
+QUESTION N°6
+The writer begins with the four questions in order to  _  .
+The correct answer is: B
+Initial answers:
+B: The four questions are designed to engage the reader and make them curious about how counting and numbers might be different around the world. This sets the stage for the rest of the passage, which explores these differences.
+B: The writer begins with the four questions to interest readers and draw their attention to the topic of how people count and perceive numbers in different cultures and languages.
+B: The writer begins with four questions as an opening strategy (introduction) intended primarily for intriguing readers (interest), rather than conducting research (survey), telling a story or solving mathematical problems.
+Consensus reached on iteration N°1
+------------------------------------------------------------
+QUESTION N°7
+What do we learn from the difference in finger counting between the US and China?
+The correct answer is: C
+Initial answers:
+C: The passage states  that 'In China...people count by using *different* finger positions.' This directly supports option C.
+C: People of different cultures may use different ways of finger counting.
+C: People of different cultures may use different ways of finger counting.
+Consensus reached on iteration N°1
+------------------------------------------------------------
+QUESTION N°8
+Which of the following is true about aboriginal Australians?
+The correct answer is: D
+Initial answers:
+D: The text states: 'There people don't have hand movements to stand for numbers.They don't even have words for numbers.However,they are still able to understand different ideas about numbers.
+D: They can understand different ideas about numbers.
+D: Although aboriginal Australians don't possess hand movements specifically used as number representations (as per option B), they still do possess an understanding or conceptualization (though possibly non-verbalized) about various numerical concepts (as per option D).
+Consensus reached on iteration N°1
+------------------------------------------------------------
+QUESTION N°9
+The study of the Piraha tribe shows that  _  .
+The correct answer is: D
+Initial answers:
+D: The passage states Professor Edward Gibson said: '...they could learn...but it's **not useful** **in</b> **their culture**, so they’ve never picked it up.'
+D: According to Professor Edward Gibson, counting is not useful in the culture of the tribe, so they've never picked it up.
+D: The study shows that counting is not useful in the culture of Piraha tribe because they don't acquire number-related vocabulary naturally.
+Consensus reached on iteration N°1
+------------------------------------------------------------
+[True, True, True, True, True, True, True, True, True, True]
+Score: 10/10 (100.0%)

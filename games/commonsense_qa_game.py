@@ -19,7 +19,7 @@ def setup_logging(output_dir='outputs_games'):
     # Generate log filename with timestamp
     log_filename = os.path.join(
         output_dir, 
-        f"ecqa_game_{time.datetime.now().strftime('%d-%m-%Y_%H-%M-%S')}.log"
+        f"cqa_game_{time.datetime.now().strftime('%d-%m-%Y_%H-%M-%S')}.log"
     )
     
     # Configure logging
@@ -37,7 +37,7 @@ def setup_logging(output_dir='outputs_games'):
 def commonsense_qa_game(n, model_1, model_2, model_3, api_key):
     # Set up logging
     log_filename = setup_logging()
-    logging.info(f"Starting ECQA Game with {n} questions")
+    logging.info(f"Starting CQA Game with {n} questions")
     logging.info(f"Models used: {model_1}, {model_2}, {model_3}")
 
     try:
@@ -45,12 +45,9 @@ def commonsense_qa_game(n, model_1, model_2, model_3, api_key):
         llms = [OpenAI(api_key=api_key, base_url="https://api.llama-api.com") for _ in range(3)]
         models = [model_1, model_2, model_3]
 
-        #   Cargar el dataset
-        ds = load_dataset("tau/commonsense_qa")
-
         # Cargar el dataset
-        logging.info("Loading ECQA dataset")
-        ds = load_dataset("yangdong/ecqa")
+        logging.info("Loading CQA dataset")
+        ds = load_dataset("tau/commonsense_qa")
 
         # Inicializar puntajes
         score = []
@@ -197,17 +194,15 @@ def commonsense_qa_game(n, model_1, model_2, model_3, api_key):
             outputs.append((f"QUESTION N°{i}"))
 
             try:
-                row = ds["train"][i]
+                row = ds["validation"][i] # Se prueba con validation
 
-                prompt, answer = get_data_ecqa_and_prompt(row)
+                prompt, answer = get_data_commonsense_qa_and_prompt(row)
 
-                correct_answer = get_key_ecqa(row, answer)
-
-                outputs.append(row['q_text'])
-                outputs.append(f"The correct answer is: {correct_answer}")
+                outputs.append(row['question'])
+                outputs.append(f"The correct answer is: {answer}")
                 
-                logging.info(f"Question: {row['q_text']}")
-                logging.info(f"Correct Answer: {correct_answer}")
+                logging.info(f"Question: {row['question']}")
+                logging.info(f"Correct Answer: {answer}")
 
                 llm_answers = [get_llm_response(llm, prompt, model, 3) for llm, model in zip(llms, models)]
                 answers, explanations = zip(*(clean_response_multiple(resp) for resp in llm_answers))
@@ -217,7 +212,7 @@ def commonsense_qa_game(n, model_1, model_2, model_3, api_key):
                     outputs.append(f"{ans}: {exp}")
                     logging.info(f"Initial Answer: {ans}, Explanation: {exp}")
                 
-                resolve_conflict(answers, explanations, correct_answer, 3)
+                resolve_conflict(answers, explanations, answer, 3)
                 outputs.append("------------------------------------------------------------")
 
             except Exception as e:
@@ -230,45 +225,15 @@ def commonsense_qa_game(n, model_1, model_2, model_3, api_key):
 
         date = time.datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
 
-        with open(f"outputs_games/ecqa_game_{date}.txt", "w", encoding="utf-8") as f:
-            for output in outputs:
-                if isinstance(output, tuple):
-                    f.write(" ".join(map(str, output)) + "\n")
-                else:
-                    f.write(str(output) + "\n")
-
-        logging.info(f"Results saved to outputs_games/ecqa_game_{date}.txt")
-        logging.info(f"Log file saved to {log_filename}")
-
-
-        row = ds["validation"][i] # Se prueba con validation
-
-        prompt, answer = get_data_commonsense_qa_and_prompt(row)
-
-        outputs.append(row['question'])
-        outputs.append(f"The correct answer is: {answer}")
-
-        llm_answers = [get_llm_response(llm, prompt, model, 3) for llm, model in zip(llms, models)]
-        answers, explanations = zip(*(clean_response_multiple(resp) for resp in llm_answers))
-
-        outputs.append("Initial answers:")
-        for ans, exp in zip(answers, explanations):
-            outputs.append(f"{ans}: {exp}")
-            
-        resolve_conflict(answers, explanations, answer, 3)
-        outputs.append("------------------------------------------------------------")
-
-        outputs.append(score)
-        outputs.append(f"Score: {sum(score)}/{n} ({sum(score)/n*100}%)")
-
-        date = time.datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
-
         with open(f"outputs_games/cqa_game_{date}.txt", "w", encoding="utf-8") as f:
             for output in outputs:
                 if isinstance(output, tuple):
                     f.write(" ".join(map(str, output)) + "\n")
                 else:
                     f.write(str(output) + "\n")
+
+        logging.info(f"Results saved to outputs_games/cqa_game_{date}.txt")
+        logging.info(f"Log file saved to {log_filename}")
 
         return score
     except Exception as e:
