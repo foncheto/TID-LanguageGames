@@ -34,7 +34,7 @@ def setup_logging(output_dir='outputs_games'):
     
     return log_filename
 
-def ecqa_game(n, model_1, model_2, model_3, api_key):
+def commonsense_qa_game(n, model_1, model_2, model_3, api_key):
     # Set up logging
     log_filename = setup_logging()
     logging.info(f"Starting ECQA Game with {n} questions")
@@ -44,6 +44,9 @@ def ecqa_game(n, model_1, model_2, model_3, api_key):
         # Inicializar modelos solo una vez
         llms = [OpenAI(api_key=api_key, base_url="https://api.llama-api.com") for _ in range(3)]
         models = [model_1, model_2, model_3]
+
+        #   Cargar el dataset
+        ds = load_dataset("tau/commonsense_qa")
 
         # Cargar el dataset
         logging.info("Loading ECQA dataset")
@@ -237,8 +240,37 @@ def ecqa_game(n, model_1, model_2, model_3, api_key):
         logging.info(f"Results saved to outputs_games/ecqa_game_{date}.txt")
         logging.info(f"Log file saved to {log_filename}")
 
-        return score
 
+        row = ds["validation"][i] # Se prueba con validation
+
+        prompt, answer = get_data_commonsense_qa_and_prompt(row)
+
+        outputs.append(row['question'])
+        outputs.append(f"The correct answer is: {answer}")
+
+        llm_answers = [get_llm_response(llm, prompt, model, 3) for llm, model in zip(llms, models)]
+        answers, explanations = zip(*(clean_response_multiple(resp) for resp in llm_answers))
+
+        outputs.append("Initial answers:")
+        for ans, exp in zip(answers, explanations):
+            outputs.append(f"{ans}: {exp}")
+            
+        resolve_conflict(answers, explanations, answer, 3)
+        outputs.append("------------------------------------------------------------")
+
+        outputs.append(score)
+        outputs.append(f"Score: {sum(score)}/{n} ({sum(score)/n*100}%)")
+
+        date = time.datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
+
+        with open(f"outputs_games/cqa_game_{date}.txt", "w", encoding="utf-8") as f:
+            for output in outputs:
+                if isinstance(output, tuple):
+                    f.write(" ".join(map(str, output)) + "\n")
+                else:
+                    f.write(str(output) + "\n")
+
+        return score
     except Exception as e:
         logging.error(f"Unhandled exception in ecqa_game: {e}")
         raise

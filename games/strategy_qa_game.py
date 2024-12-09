@@ -81,7 +81,10 @@ def strategy_qa_game(n, model_1, model_2, model_3, api_key):
                 else:
                     logging.info("No consensus, choosing most common answer")
                     outputs.append("No consensus, choosing most common answer")
-                    
+
+                    all_answers = answers + [new_answer]
+                    all_explanations = explanations + [new_explanation]
+
                     # Eliminar respuestas aleatorias
                     filtered_answers = [
                         ans for ans, exp in zip(all_answers, all_explanations) if exp != "Random answer"
