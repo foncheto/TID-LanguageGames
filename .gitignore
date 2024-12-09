@@ -132,6 +132,7 @@ csv/
 csv_groq/
 outputs_games/
 outputs_evals/
+test.py
 
 # Spyder project settings
 .spyderproject
