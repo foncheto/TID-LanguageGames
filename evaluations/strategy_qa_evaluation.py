@@ -19,9 +19,9 @@ def strategy_qa_eval(n, model, api_key):
         outputs.append(f"QUESTION N°{i}")
 
         # Get the question and answer
-        prompt, answer = get_data_strategy_qa_and_prompt(ds["test"][i])
+        prompt, original_answer = get_data_strategy_qa_and_prompt(ds["test"][i])
 
-        correct_answer = "yes" if answer else "no"
+        correct_answer = "yes" if original_answer else "no"
 
         outputs.append(f"{ds['test'][i]['question']}")
         outputs.append(f"The correct answer is: {correct_answer}")
@@ -38,7 +38,6 @@ def strategy_qa_eval(n, model, api_key):
             error_count += 1
 
         # Check if the LLM answer is correct
-        correct_answer = "yes" if answer else "no"
         llm_answer_filtered = ''.join(filter(str.isalpha, answer.lower()))
 
         score.append(llm_answer_filtered == correct_answer)

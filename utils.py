@@ -113,6 +113,7 @@ def get_llm_response(llm, prompt, model, times):
             answer_dict = json.loads(json_content)
             answer = answer_dict["correct_option"]
             explanation = answer_dict["explanation"]
+            return llm_answer
         except:
             return get_llm_response(llm, prompt, model, times - 1)
     return llm_answer

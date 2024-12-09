@@ -106,7 +106,7 @@ def evaluation():
         score, error = sqa_eval(n, model, api_key)
         print(f"Score Strategy QA: {sum(score)}/{n} ({sum(score)/n*100}%)")
         print(f"Errors: {error} ({error/n*100}%)")
-
+"""
         # Run CQA Evaluation
         score, error = cqa_eval(n, model, api_key)
         print(f"Score RACE Middle QA: {sum(score)}/{n} ({sum(score)/n*100}%)")
@@ -130,7 +130,7 @@ def evaluation():
         # Run ARC Easy Evaluation
         score, error = arc_easy_eval(n, model, api_key)
         print(f"Score ARC-Easy: {sum(score)}/{n} ({sum(score)/n*100}%)")
-        print(f"Errors: {error} ({error/n*100}%)")
+        print(f"Errors: {error} ({error/n*100}%)")"""
 
 def main():
     log_filename = setup_main_logging()
