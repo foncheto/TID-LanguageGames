@@ -7,7 +7,6 @@ import json
 
 # Load the spaCy language model
 nlp = spacy.load('en_core_web_lg') # 400 MB
-nlp2 = spacy.load('en_trf_bertbaseuncased_lg')
 
 def compare_responses_1(response1, response2):
     if isinstance(response1, list):
