@@ -5,6 +5,10 @@ from games.race_middle_game import race_middle_game as rmiddle_game
 from games.race_high_game import race_high_game as rhigh_game
 # Import Evaluations
 from evaluations.strategy_qa_evaluation import strategy_qa_eval as sqa_eval
+from evaluations.race_high_evaluation import race_high_evaluation as rhigh_eval
+from evaluations.race_middle_evaluation import race_middle_evaluation as rmiddle_eval
+
+# Import Generals
 from dotenv import load_dotenv
 import os
 import logging
@@ -63,11 +67,11 @@ def game(log_filename):
         print(f"Score Strategy QA: {sum(sqa_score)}/{n} ({sqa_result:.2f}%)")"""
 
         # Run CQA Game
-        logging.info("Starting CQA Game")
+        """logging.info("Starting CQA Game")
         cqa_score = cqa_game(n, model_1, model_2, model_3, api_key)
         cqa_result = sum(cqa_score)/n*100
         logging.info(f"CQA Score: {sum(cqa_score)}/{n} ({cqa_result:.2f}%)")
-        print(f"Score CQA: {sum(cqa_score)}/{n} ({cqa_result:.2f}%)")
+        print(f"Score CQA: {sum(cqa_score)}/{n} ({cqa_result:.2f}%)")"""
 
         # Run Race Middle Game
         """logging.info("Starting Race-Middle Game")
@@ -94,16 +98,16 @@ def evaluation():
     model = "gemma2-9b"
     api_key = os.getenv("API_KEY")
 
-    score, error = sqa_eval(n, model, api_key)
-    print(f"Score Strategy QA: {sum(score)}/{n} ({sum(score)/n*100}%)")
+    score, error = rmiddle_eval(n, model, api_key)
+    print(f"Score RACE Middle QA: {sum(score)}/{n} ({sum(score)/n*100}%)")
     print(f"Errors: {error} ({error/n*100}%)")
 
 def main():
     log_filename = setup_main_logging()
     logging.info("Starting LLM Experiment")
 
-    game(log_filename)
-    #evaluation()
+    #game(log_filename)
+    evaluation()
 
 if __name__ == "__main__":
     load_dotenv()

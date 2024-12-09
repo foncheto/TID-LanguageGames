@@ -2,13 +2,13 @@ from openai import OpenAI
 from datasets import load_dataset
 from utils import *
 
-def race_high_evaluation(n, model, api_key):
+def arc_easy_evaluation(n, model, api_key):
     llm = OpenAI(
         api_key = api_key,
         base_url = "https://api.llama-api.com"
     )
 
-    ds = load_dataset("ehovy/race", "high")
+    ds = load_dataset("allenai/ai2_arc", "ARC-Easy")
 
     score = []
 

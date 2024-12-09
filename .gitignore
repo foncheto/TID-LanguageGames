@@ -130,6 +130,8 @@ venv.bak/
 
 csv/
 csv_groq/
+outputs_games/
+outputs_eval/
 
 # Spyder project settings
 .spyderproject
