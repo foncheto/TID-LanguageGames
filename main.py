@@ -3,6 +3,7 @@ from games.strategy_qa_game import strategy_qa_game as sqa_game
 from games.commonsense_qa_game import commonsense_qa_game as cqa_game
 from games.race_middle_game import race_middle_game as rmiddle_game
 from games.race_high_game import race_high_game as rhigh_game
+
 # Import Evaluations
 from evaluations.strategy_qa_evaluation import strategy_qa_eval as sqa_eval
 from evaluations.commonsense_qa_evaluation import commonsense_qa_eval as cqa_eval
@@ -63,32 +64,32 @@ def game(log_filename):
         logging.info(f"Models: {model_1}, {model_2}, {model_3}")
 
         # Run Strategy QA Game
-        """logging.info("Starting Strategy QA Game")
+        logging.info("Starting Strategy QA Game")
         sqa_score = sqa_game(n, model_1, model_2, model_3, api_key)
         sqa_result = sum(sqa_score)/n*100
         logging.info(f"Strategy QA Score: {sum(sqa_score)}/{n} ({sqa_result:.2f}%)")
-        print(f"Score Strategy QA: {sum(sqa_score)}/{n} ({sqa_result:.2f}%)")"""
+        print(f"Score Strategy QA: {sum(sqa_score)}/{n} ({sqa_result:.2f}%)")
 
         # Run CQA Game
-        """logging.info("Starting CQA Game")
+        logging.info("Starting Commonsense QA Game")
         cqa_score = cqa_game(n, model_1, model_2, model_3, api_key)
         cqa_result = sum(cqa_score)/n*100
-        logging.info(f"CQA Score: {sum(cqa_score)}/{n} ({cqa_result:.2f}%)")
-        print(f"Score CQA: {sum(cqa_score)}/{n} ({cqa_result:.2f}%)")"""
+        logging.info(f"Commonsense QA Score: {sum(cqa_score)}/{n} ({cqa_result:.2f}%)")
+        print(f"Score Commonsense QA: {sum(cqa_score)}/{n} ({cqa_result:.2f}%)")
 
         # Run Race Middle Game
-        """logging.info("Starting Race-Middle Game")
+        logging.info("Starting Race-Middle Game")
         rmiddle_score = rmiddle_game(n, model_1, model_2, model_3, api_key)
         rmiddle_result = sum(rmiddle_score)/n*100
         logging.info(f"Race-Middle Score: {sum(rmiddle_score)}/{n} ({rmiddle_result:.2f}%)")
-        print(f"Score Race-Middle: {sum(rmiddle_score)}/{n} ({rmiddle_result:.2f}%)")"""
+        print(f"Score Race-Middle: {sum(rmiddle_score)}/{n} ({rmiddle_result:.2f}%)")
 
-        # Run Race Middle Game
-        """logging.info("Starting Race-High Game")
+        # Run Race High Game
+        logging.info("Starting Race-High Game")
         rhigh_score = rhigh_game(n, model_1, model_2, model_3, api_key)
-        rhigh_result= sum(rhigh_score)/n*100
+        rhigh_result = sum(rhigh_score)/n*100
         logging.info(f"Race-High Score: {sum(rhigh_score)}/{n} ({rhigh_result:.2f}%)")
-        print(f"Score Race-High: {sum(rhigh_score)}/{n} ({rhigh_result:.2f}%)")"""
+        print(f"Score Race-High: {sum(rhigh_score)}/{n} ({rhigh_result:.2f}%)")
 
     except Exception as e:
         logging.error(f"An error occurred during the experiment: {e}", exc_info=True)
@@ -102,41 +103,37 @@ def evaluation():
     api_key = os.getenv("API_KEY")
 
     for model in models:
+        logging.info(f"Starting evaluation for model: {model}")
+
         # Run Strategy QA Evaluation
         score, error = sqa_eval(n, model, api_key)
-        print(f"Score Strategy QA: {sum(score)}/{n} ({sum(score)/n*100}%)")
-        print(f"Errors: {error} ({error/n*100}%)")
-"""
-        # Run CQA Evaluation
+        logging.info(f"Strategy QA Evaluation: Score={sum(score)}/{n} ({sum(score)/n*100}%), Errors={error} ({error/n*100}%)")
+
+        # Run Commonsense QA Evaluation
         score, error = cqa_eval(n, model, api_key)
-        print(f"Score RACE Middle QA: {sum(score)}/{n} ({sum(score)/n*100}%)")
-        print(f"Errors: {error} ({error/n*100}%)")
+        logging.info(f"Commonsense QA Evaluation: Score={sum(score)}/{n} ({sum(score)/n*100}%), Errors={error} ({error/n*100}%)")
 
         # Run Race Middle Evaluation
         score, error = rmiddle_eval(n, model, api_key)
-        print(f"Score Race-Middle: {sum(score)}/{n} ({sum(score)/n*100}%)")
-        print(f"Errors: {error} ({error/n*100}%)")
+        logging.info(f"Race-Middle Evaluation: Score={sum(score)}/{n} ({sum(score)/n*100}%), Errors={error} ({error/n*100}%)")
         
         # Run Race High Evaluation
         score, error = rhigh_eval(n, model, api_key)
-        print(f"Score Race-Hard: {sum(score)}/{n} ({sum(score)/n*100}%)")
-        print(f"Errors: {error} ({error/n*100}%)")
+        logging.info(f"Race-High Evaluation: Score={sum(score)}/{n} ({sum(score)/n*100}%), Errors={error} ({error/n*100}%)")
 
         # Run ARC Challenge Evaluation
         score, error = arc_chall_eval(n, model, api_key)
-        print(f"Score ARC-Challege: {sum(score)}/{n} ({sum(score)/n*100}%)")
-        print(f"Errors: {error} ({error/n*100}%)")
+        logging.info(f"ARC-Challenge Evaluation: Score={sum(score)}/{n} ({sum(score)/n*100}%), Errors={error} ({error/n*100}%)")
 
         # Run ARC Easy Evaluation
         score, error = arc_easy_eval(n, model, api_key)
-        print(f"Score ARC-Easy: {sum(score)}/{n} ({sum(score)/n*100}%)")
-        print(f"Errors: {error} ({error/n*100}%)")"""
+        logging.info(f"ARC-Easy Evaluation: Score={sum(score)}/{n} ({sum(score)/n*100}%), Errors={error} ({error/n*100}%)")
 
 def main():
     log_filename = setup_main_logging()
     logging.info("Starting LLM Experiment")
 
-    #game(log_filename)
+    game(log_filename)
     evaluation()
 
 if __name__ == "__main__":
