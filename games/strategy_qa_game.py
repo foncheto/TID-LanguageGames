@@ -4,39 +4,10 @@ from datasets import load_dataset
 from utils import *
 import datetime as time
 import logging
-import os
-
-def setup_logging(output_dir='outputs_games'):
-    """
-    Set up logging configuration.
-    
-    Args:
-        output_dir (str): Directory to store log files
-    """
-    # Create output directory if it doesn't exist
-    os.makedirs(output_dir, exist_ok=True)
-    
-    # Generate log filename with timestamp
-    log_filename = os.path.join(
-        output_dir, 
-        f"strategy_qa_game_{time.datetime.now().strftime('%d-%m-%Y_%H-%M-%S')}.log"
-    )
-    
-    # Configure logging
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s - %(levelname)s: %(message)s',
-        handlers=[
-            logging.FileHandler(log_filename, encoding='utf-8'),
-            logging.StreamHandler()  # Also log to console
-        ]
-    )
-    
-    return log_filename
 
 def strategy_qa_game(n, model_1, model_2, model_3, api_key):
     # Set up logging
-    log_filename = setup_logging()
+    log_filename = setup_logging("strategy_qa_game", "outputs_games")
     logging.info(f"Starting Strategy QA Game with {n} questions")
     logging.info(f"Models used: {model_1}, {model_2}, {model_3}")
 
@@ -118,12 +89,15 @@ def strategy_qa_game(n, model_1, model_2, model_3, api_key):
                 llm_answers = [get_llm_response(llm, prompt, model, 3) for llm, model in zip(llms, models)]
                 answers, explanations = zip(*(clean_response_boolean(resp) for resp in llm_answers))
                 
-                correct_answer = "yes" if answer else "no"
+                # Se deja primero en mayuscula para orden
+                correct_answer = "Yes" if answer else "No"
 
                 outputs.append(f"{ds['test'][i]['question']}")
                 outputs.append(f"The correct answer is: {correct_answer}")
                 logging.info(f"Question: {ds['test'][i]['question']}")
                 logging.info(f"Correct Answer: {correct_answer}")
+
+                correct_answer = "yes" if answer else "no"
 
                 outputs.append("Initial answers:")
                 for ans, exp in zip(answers, explanations):

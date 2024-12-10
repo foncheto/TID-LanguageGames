@@ -4,39 +4,10 @@ from datasets import load_dataset
 from utils import *
 import datetime as time
 import logging
-import os
-
-def setup_logging(output_dir='outputs_games'):
-    """
-    Set up logging configuration.
-    
-    Args:
-        output_dir (str): Directory to store log files
-    """
-    # Create output directory if it doesn't exist
-    os.makedirs(output_dir, exist_ok=True)
-    
-    # Generate log filename with timestamp
-    log_filename = os.path.join(
-        output_dir, 
-        f"cqa_game_{time.datetime.now().strftime('%d-%m-%Y_%H-%M-%S')}.log"
-    )
-    
-    # Configure logging
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s - %(levelname)s: %(message)s',
-        handlers=[
-            logging.FileHandler(log_filename, encoding='utf-8'),
-            logging.StreamHandler()  # Also log to console
-        ]
-    )
-    
-    return log_filename
 
 def commonsense_qa_game(n, model_1, model_2, model_3, api_key):
     # Set up logging
-    log_filename = setup_logging()
+    log_filename = setup_logging("cqa_game", "outputs_games")
     logging.info(f"Starting CQA Game with {n} questions")
     logging.info(f"Models used: {model_1}, {model_2}, {model_3}")
 
@@ -219,6 +190,7 @@ def commonsense_qa_game(n, model_1, model_2, model_3, api_key):
                 logging.error(f"Error processing question {i}: {e}")
                 score.append(False)
 
+        # Registrar el puntaje
         outputs.append(score)
         outputs.append(f"Score: {sum(score)}/{n} ({sum(score)/n*100}%)")
         logging.info(f"Final Score: {sum(score)}/{n} ({sum(score)/n*100}%)")
@@ -237,5 +209,5 @@ def commonsense_qa_game(n, model_1, model_2, model_3, api_key):
 
         return score
     except Exception as e:
-        logging.error(f"Unhandled exception in ecqa_game: {e}")
+        logging.error(f"Unhandled exception in cqa_game: {e}")
         raise

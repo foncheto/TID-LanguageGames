@@ -3,15 +3,14 @@ from collections import Counter
 from openai import OpenAI
 from datasets import load_dataset
 from utils import *
-import datetime as time
 
-def race_middle_game(n, model_1, model_2, model_3, api_key):
+def arc_easy_game(n, model_1, model_2, model_3, api_key):
     # Initialize models only once
     llms = [OpenAI(api_key=api_key, base_url="https://api.llama-api.com") for _ in range(3)]
     models = [model_1, model_2, model_3]
 
     # Load the dataset
-    ds = load_dataset("ehovy/race", "middle")
+    ds = load_dataset("allenai/ai2_arc", "ARC-Easy")
 
     # Initialize scores
     score = []
@@ -82,7 +81,7 @@ def race_middle_game(n, model_1, model_2, model_3, api_key):
     for i in range(n):
         logging.info(f"Processing QUESTION N°{i}")
         row = ds["validation"][i]
-        prompt, answer = get_data_race_and_prompt(row)
+        prompt, answer = get_data_arc_and_prompt(row)
         logging.info(f"Question: {row['question']}")
         logging.info(f"The correct answer is: {answer}")
 
