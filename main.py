@@ -1,4 +1,9 @@
-# Import Games
+import os
+import logging
+import json
+from datetime import datetime
+from typing import List, Tuple
+
 from games.strategy_qa_game import strategy_qa_game as sqa_game
 from games.commonsense_qa_game import commonsense_qa_game as cqa_game
 from games.race_middle_game import race_middle_game as rmiddle_game
@@ -6,7 +11,6 @@ from games.race_high_game import race_high_game as rhigh_game
 from games.arc_easy_game import arc_easy_game as arc_easy_game
 from games.arc_challenge_game import arc_challenge_game as arc_chall_game
 
-# Import Evaluations
 from evaluations.strategy_qa_evaluation import strategy_qa_eval as sqa_eval
 from evaluations.commonsense_qa_evaluation import commonsense_qa_eval as cqa_eval
 from evaluations.race_middle_evaluation import race_middle_evaluation as rmiddle_eval
@@ -14,116 +18,183 @@ from evaluations.race_high_evaluation import race_high_evaluation as rhigh_eval
 from evaluations.arc_easy_evaluation import arc_easy_evaluation as arc_easy_eval
 from evaluations.arc_challenge_evaluation import arc_challenge_evaluation as arc_chall_eval
 
-# Import Generals
-from utils import setup_main_logging
 from dotenv import load_dotenv
-import os
-import logging
 
-def game(log_filename):
-    n = 5
-    model_1 = "gemma2-9b"
-    model_2 = "llama3.1-8b"
-    model_3 = "mistral-7b-instruct"
+class ExperimentLogger:
+    def __init__(self, output_dir: str = "experiment_logs"):
+        """
+        Initialize the experiment logger with structured logging.
+        
+        :param output_dir: Directory to save experiment logs
+        """
+        # Create output directory if it doesn't exist
+        os.makedirs(output_dir, exist_ok=True)
+        
+        # Generate unique filename with timestamp
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        self.log_filename = os.path.join(output_dir, f"experiment_{timestamp}.log")
+        self.results_filename = os.path.join(output_dir, f"results_{timestamp}.json")
+        
+        # Configure logging
+        logging.basicConfig(
+            level=logging.INFO,
+            format='%(asctime)s - %(levelname)s - %(message)s',
+            handlers=[
+                logging.FileHandler(self.log_filename),
+                logging.StreamHandler()
+            ]
+        )
+        
+        # Initialize results dictionary
+        self.results = {
+            "timestamp": timestamp,
+            "games": {},
+            "evaluations": {}
+        }
     
+    def log_game_results(self, game_name: str, models: List[str], n: int, scores: List[float]) -> None:
+        """
+        Log game results with detailed information.
+        
+        :param game_name: Name of the game/task
+        :param models: List of models used
+        :param n: Number of questions
+        :param scores: Scores for each model
+        """
+        result = sum(scores) / n * 100
+        
+        logging.info(f"Game: {game_name}")
+        logging.info(f"Models: {', '.join(models)}")
+        logging.info(f"Number of questions: {n}")
+        logging.info(f"Score: {sum(scores)}/{n} ({result:.2f}%)")
+        
+        # Store results in dictionary
+        self.results["games"][game_name] = {
+            "models": models,
+            "n_questions": n,
+            "raw_scores": scores,
+            "percentage": result
+        }
+    
+    def log_evaluation_results(self, eval_name: str, model: str, n: int, score: List[float], errors: int) -> None:
+        """
+        Log evaluation results with detailed metrics.
+        
+        :param eval_name: Name of the evaluation
+        :param model: Model being evaluated
+        :param n: Number of questions
+        :param score: Scores 
+        :param errors: Number of errors
+        """
+        score_percentage = sum(score) / n * 100
+        error_percentage = errors / n * 100
+        
+        logging.info(f"Evaluation: {eval_name}")
+        logging.info(f"Model: {model}")
+        logging.info(f"Number of questions: {n}")
+        logging.info(f"Score: {sum(score)}/{n} ({score_percentage:.2f}%)")
+        logging.info(f"Errors: {errors} ({error_percentage:.2f}%)")
+        
+        # Store results in dictionary
+        self.results["evaluations"][f"{eval_name}_{model}"] = {
+            "model": model,
+            "n_questions": n,
+            "raw_scores": score,
+            "score_percentage": score_percentage,
+            "errors": errors,
+            "error_percentage": error_percentage
+        }
+    
+    def save_results(self) -> None:
+        """
+        Save experiment results to a JSON file.
+        """
+        try:
+            with open(self.results_filename, 'w') as f:
+                json.dump(self.results, f, indent=4)
+            logging.info(f"Results saved to {self.results_filename}")
+        except Exception as e:
+            logging.error(f"Error saving results: {e}")
+
+def run_games(logger: ExperimentLogger, n: int = 5):
+    """
+    Run game experiments with multiple models.
+    
+    :param logger: ExperimentLogger instance
+    :param n: Number of questions per game
+    """
     try:
-        # Retrieve API key
         api_key = os.getenv("API_KEY")
         if not api_key:
-            logging.error("API_KEY not found in environment variables")
             raise ValueError("API_KEY is required")
         
-        logging.info(f"Experiment Parameters:")
-        logging.info(f"Number of questions: {n}")
-        logging.info(f"Models: {model_1}, {model_2}, {model_3}")
-
-        # Run Strategy QA Game
-        logging.info("Starting Strategy QA Game")
-        sqa_score = sqa_game(n, model_1, model_2, model_3, api_key)
-        sqa_result = sum(sqa_score)/n*100
-        logging.info(f"Strategy QA Score: {sum(sqa_score)}/{n} ({sqa_result:.2f}%)")
-        print(f"Score Strategy QA: {sum(sqa_score)}/{n} ({sqa_result:.2f}%)")
-
-        # Run CQA Game
-        logging.info("Starting Commonsense QA Game")
-        cqa_score = cqa_game(n, model_1, model_2, model_3, api_key)
-        cqa_result = sum(cqa_score)/n*100
-        logging.info(f"Commonsense QA Score: {sum(cqa_score)}/{n} ({cqa_result:.2f}%)")
-        print(f"Score Commonsense QA: {sum(cqa_score)}/{n} ({cqa_result:.2f}%)")
-
-        # Run Race Middle Game
-        logging.info("Starting Race-Middle Game")
-        rmiddle_score = rmiddle_game(n, model_1, model_2, model_3, api_key)
-        rmiddle_result = sum(rmiddle_score)/n*100
-        logging.info(f"Race-Middle Score: {sum(rmiddle_score)}/{n} ({rmiddle_result:.2f}%)")
-        print(f"Score Race-Middle: {sum(rmiddle_score)}/{n} ({rmiddle_result:.2f}%)")
-
-        # Run Race High Game
-        logging.info("Starting Race-High Game")
-        rhigh_score = rhigh_game(n, model_1, model_2, model_3, api_key)
-        rhigh_result = sum(rhigh_score)/n*100
-        logging.info(f"Race-High Score: {sum(rhigh_score)}/{n} ({rhigh_result:.2f}%)")
-        print(f"Score Race-High: {sum(rhigh_score)}/{n} ({rhigh_result:.2f}%)")
-
-        # Run ARC Easy Game
-        logging.info("Starting ARC-Easy Game")
-        arc_easy_score = arc_easy_game(n, model_1, model_2, model_3, api_key)
-        arc_easy_result = sum(arc_easy_score)/n*100
-        logging.info(f"ARC-Easy Score: {sum(arc_easy_score)}/{n} ({arc_easy_result:.2f}%)")
-        print(f"Score ARC-Easy: {sum(arc_easy_score)}/{n} ({arc_easy_result:.2f}%)")
-
-        # Run ARC Challenge Game
-        logging.info("Starting ARC-Challenge Game")
-        arc_chall_score = arc_chall_game(n, model_1, model_2, model_3, api_key)
-        arc_chall_result = sum(arc_chall_score)/n*100
-        logging.info(f"ARC-Challenge Score: {sum(arc_chall_score)}/{n} ({arc_chall_result:.2f}%)")
-        print(f"Score ARC-Challenge: {sum(arc_chall_score)}/{n} ({arc_chall_result:.2f}%)")
-
-    except Exception as e:
-        logging.error(f"An error occurred during the experiment: {e}", exc_info=True)
-    
-    finally:
-        logging.info(f"Experiment completed. Log file saved to {log_filename}")
-
-def evaluation():
-    n = 10
-    models = ["gemma2-9b", "llama3.1-8b", "mistral-7b-instruct"]
-    api_key = os.getenv("API_KEY")
-
-    for model in models:
-        logging.info(f"Starting evaluation for model: {model}")
-
-        # Run Strategy QA Evaluation
-        score, error = sqa_eval(n, model, api_key)
-        logging.info(f"Strategy QA Evaluation: Score={sum(score)}/{n} ({sum(score)/n*100}%), Errors={error} ({error/n*100}%)")
-
-        # Run Commonsense QA Evaluation
-        score, error = cqa_eval(n, model, api_key)
-        logging.info(f"Commonsense QA Evaluation: Score={sum(score)}/{n} ({sum(score)/n*100}%), Errors={error} ({error/n*100}%)")
-
-        # Run Race Middle Evaluation
-        score, error = rmiddle_eval(n, model, api_key)
-        logging.info(f"Race-Middle Evaluation: Score={sum(score)}/{n} ({sum(score)/n*100}%), Errors={error} ({error/n*100}%)")
+        models = ["gemma2-9b", "llama3.1-8b", "mistral-7b-instruct"]
         
-        # Run Race High Evaluation
-        score, error = rhigh_eval(n, model, api_key)
-        logging.info(f"Race-High Evaluation: Score={sum(score)}/{n} ({sum(score)/n*100}%), Errors={error} ({error/n*100}%)")
+        games = [
+            ("Strategy QA", sqa_game),
+            ("Commonsense QA", cqa_game),
+            ("Race-Middle", rmiddle_game),
+            ("Race-High", rhigh_game),
+            ("ARC-Easy", arc_easy_game),
+            ("ARC-Challenge", arc_chall_game)
+        ]
+        
+        for game_name, game_func in games:
+            logging.info(f"Running {game_name} Game")
+            scores = game_func(n, *models, api_key)
+            logger.log_game_results(game_name, models, n, scores)
+    
+    except Exception as e:
+        logging.error(f"Error in game experiments: {e}", exc_info=True)
 
-        # Run ARC Easy Evaluation
-        score, error = arc_easy_eval(n, model, api_key)
-        logging.info(f"ARC-Easy Evaluation: Score={sum(score)}/{n} ({sum(score)/n*100}%), Errors={error} ({error/n*100}%)")
-
-        # Run ARC Challenge Evaluation
-        score, error = arc_chall_eval(n, model, api_key)
-        logging.info(f"ARC-Challenge Evaluation: Score={sum(score)}/{n} ({sum(score)/n*100}%), Errors={error} ({error/n*100}%)")
+def run_evaluations(logger: ExperimentLogger, n: int = 10):
+    """
+    Run model evaluations.
+    
+    :param logger: ExperimentLogger instance
+    :param n: Number of questions per evaluation
+    """
+    try:
+        api_key = os.getenv("API_KEY")
+        models = ["gemma2-9b", "llama3.1-8b", "mistral-7b-instruct"]
+        
+        evaluations = [
+            ("Strategy QA", sqa_eval),
+            ("Commonsense QA", cqa_eval),
+            ("Race-Middle", rmiddle_eval),
+            ("Race-High", rhigh_eval),
+            ("ARC-Easy", arc_easy_eval),
+            ("ARC-Challenge", arc_chall_eval)
+        ]
+        
+        for eval_name, eval_func in evaluations:
+            for model in models:
+                logging.info(f"Running {eval_name} Evaluation for {model}")
+                scores, errors = eval_func(n, model, api_key)
+                logger.log_evaluation_results(eval_name, model, n, scores, errors)
+    
+    except Exception as e:
+        logging.error(f"Error in model evaluations: {e}", exc_info=True)
 
 def main():
-    log_filename = setup_main_logging("outputs_games")
+    # Load environment variables
+    load_dotenv()
+    
+    # Initialize experiment logger
+    logger = ExperimentLogger()
+    
     logging.info("Starting LLM Experiment")
-
-    game(log_filename)
-    #evaluation()
+    
+    # Run games
+    run_games(logger)
+    
+    # Run evaluations (optional)
+    # run_evaluations(logger)
+    
+    # Save final results
+    logger.save_results()
+    
+    logging.info("Experiment Completed")
 
 if __name__ == "__main__":
-    load_dotenv()
     main()
