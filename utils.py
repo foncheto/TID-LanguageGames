@@ -178,7 +178,18 @@ def get_data_race_and_prompt(row):
     return prompt, row['answer']
 
 def get_data_arc_and_prompt(row):
-    prompt = (
+    if len(row['choices']['text']) == 3:
+        prompt = (
+            f"I will provide a context, a question and three possible answers. Your task is to select the most correct answer based on the information provided.\n"
+            f"Question: {row['question']}\n"
+            f"Options:\n"
+            f"A) {row['choices']['text'][0]}\n"
+            f"B) {row['choices']['text'][1]}\n"
+            f"C) {row['choices']['text'][2]}\n"
+            f'Answer only with the correct letter and explanation in this format {{"correct_option": "X", "explanation": "X"}}:'
+        )
+    elif len(row['choices']['text']) == 4:
+        prompt = (
             f"I will provide a context, a question and four possible answers. Your task is to select the most correct answer based on the information provided.\n"
             f"Question: {row['question']}\n"
             f"Options:\n"
@@ -186,6 +197,18 @@ def get_data_arc_and_prompt(row):
             f"B) {row['choices']['text'][1]}\n"
             f"C) {row['choices']['text'][2]}\n"
             f"D) {row['choices']['text'][3]}\n"
+            f'Answer only with the correct letter and explanation in this format {{"correct_option": "X", "explanation": "X"}}:'
+        )
+    elif len(row['choices']['text']) == 5:
+        prompt = (
+            f"I will provide a context, a question and five possible answers. Your task is to select the most correct answer based on the information provided.\n"
+            f"Question: {row['question']}\n"
+            f"Options:\n"
+            f"A) {row['choices']['text'][0]}\n"
+            f"B) {row['choices']['text'][1]}\n"
+            f"C) {row['choices']['text'][2]}\n"
+            f"D) {row['choices']['text'][3]}\n"
+            f"E) {row['choices']['text'][4]}\n"
             f'Answer only with the correct letter and explanation in this format {{"correct_option": "X", "explanation": "X"}}:'
         )
     return prompt, row['answerKey']
