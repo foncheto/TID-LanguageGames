@@ -18,6 +18,7 @@ from evaluations.race_middle_evaluation import race_middle_evaluation as rmiddle
 from evaluations.race_high_evaluation import race_high_evaluation as rhigh_eval
 from evaluations.arc_easy_evaluation import arc_easy_evaluation as arc_easy_eval
 from evaluations.arc_challenge_evaluation import arc_challenge_evaluation as arc_chall_eval
+from evaluations.truthful_qa_evaluation import truthful_qa_eval as truthful_qa_eval
 
 from dotenv import load_dotenv
 
@@ -161,6 +162,7 @@ def run_evaluations(logger: ExperimentLogger, n: int = 10):
         models = ["gemma2-9b", "llama3.1-8b", "mistral-7b-instruct"]
         
         evaluations = [
+            ("Truthful QA", truthful_qa_eval),
             ("Strategy QA", sqa_eval),
             ("Commonsense QA", cqa_eval),
             ("Race-Middle", rmiddle_eval),
