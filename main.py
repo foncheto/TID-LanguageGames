@@ -10,6 +10,7 @@ from games.race_middle_game import race_middle_game as rmiddle_game
 from games.race_high_game import race_high_game as rhigh_game
 from games.arc_easy_game import arc_easy_game as arc_easy_game
 from games.arc_challenge_game import arc_challenge_game as arc_chall_game
+from games.truthful_qa_game import truthful_qa_game as truthful_qa_game
 
 from evaluations.strategy_qa_evaluation import strategy_qa_eval as sqa_eval
 from evaluations.commonsense_qa_evaluation import commonsense_qa_eval as cqa_eval
@@ -131,6 +132,7 @@ def run_games(logger: ExperimentLogger, n: int = 5):
         models = ["gemma2-9b", "llama3.1-8b", "mistral-7b-instruct"]
         
         games = [
+            ("Truthful QA", truthful_qa_game),  # Corrected to a tuple
             ("Strategy QA", sqa_game),
             ("Commonsense QA", cqa_game),
             ("Race-Middle", rmiddle_game),

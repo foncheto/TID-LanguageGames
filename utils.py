@@ -12,6 +12,31 @@ import datetime as time
 nlp = spacy.load('en_core_web_lg') # 400 MB
 #nlp2 = spacy.load('en_trf_bertbaseuncased_lg')
 
+def is_answer_correct(answer, correct_answers, threshold=0.75):
+    """
+    Check if the given answer is correct based on similarity to the list of correct answers.
+    
+    Args:
+        answer (str): The model's answer.
+        correct_answers (list of str): List of correct answers.
+        threshold (float): Minimum similarity score to consider the answer correct.
+    
+    Returns:
+        bool: True if the answer matches any correct answer above the threshold.
+    """
+    # Compute similarity with each correct answer
+    similarities = [compare_responses_2(answer, correct) for correct in correct_answers]
+    max_similarity = max(similarities)
+    
+    # Log details for debugging
+    logging.info(f"Answer: {answer}")
+    logging.info(f"Similarities: {similarities}")
+    logging.info(f"Max Similarity: {max_similarity}")
+
+    # Return True if similarity exceeds threshold
+    return max_similarity >= threshold
+
+
 def compare_responses_1(response1, response2):
     if isinstance(response1, list):
         response1 = list_to_string(response1)
