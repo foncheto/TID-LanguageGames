@@ -38,8 +38,11 @@ def strategy_qa_eval(n, model, api_key):
             error_count += 1
 
         # Check if the LLM answer is correct
-        llm_answer_filtered = ''.join(filter(str.isalpha, answer.lower()))
-
+        try:
+            llm_answer_filtered = ''.join(filter(str.isalpha, answer.lower()))
+        except:
+            llm_answer_filtered = answer
+            
         score.append(llm_answer_filtered == correct_answer)
         print(llm_answer_filtered == correct_answer)
         outputs.append(f"LLM answer: {llm_answer_filtered}")
