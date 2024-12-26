@@ -38,8 +38,8 @@ def truthful_qa_eval(n, model, api_key):
         if explanation == "Random answer":
             error_count += 1
 
-        # Check if the LLM answer is correct
-        is_correct = is_answer_correct(answer, correct_answers)
+        # Check if the LLM answer is correct using the transformer-based function
+        is_correct = is_answer_correct_with_transformer(answer, correct_answers)
         score.append(is_correct)
 
         outputs.append(f"Is Correct: {is_correct}")

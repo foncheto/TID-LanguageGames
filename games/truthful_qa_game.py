@@ -5,7 +5,6 @@ import datetime as time
 import logging
 from utils import *
 
-
 def truthful_qa_game(n, model_1, model_2, model_3, api_key):
     # Set up logging
     log_filename = setup_logging("truthful_qa_game", "outputs_games")
@@ -40,7 +39,7 @@ def truthful_qa_game(n, model_1, model_2, model_3, api_key):
                 outputs.append(f"{new_answer}: {new_explanation}")
                 logging.info(f"Conflict resolution response: {new_answer}")
 
-                if is_answer_correct(new_answer, correct_answers):
+                if is_answer_correct_with_transformer(new_answer, correct_answers):
                     logging.info(f"LLM {main_index + 1} resolved conflict successfully")
                     outputs.append(f"LLM {main_index + 1} resolved conflict successfully")
                     score.append(True)
@@ -58,7 +57,7 @@ def truthful_qa_game(n, model_1, model_2, model_3, api_key):
                         ans for ans, exp in zip(all_answers, explanations + [new_explanation]) if exp != "Random answer"
                     ]
                     most_common_answer = Counter(filtered_answers).most_common(1)[0][0]
-                    score.append(is_answer_correct(most_common_answer, correct_answers))
+                    score.append(is_answer_correct_with_transformer(most_common_answer, correct_answers))
                     return
             except Exception as e:
                 logging.error(f"Error in conflict resolution: {e}")
@@ -92,7 +91,7 @@ def truthful_qa_game(n, model_1, model_2, model_3, api_key):
                 if len(set(answers)) == 1:
                     logging.info("Consensus reached on initial responses")
                     outputs.append("Consensus reached on initial responses")
-                    score.append(is_answer_correct(answers[0], correct_answers))
+                    score.append(is_answer_correct_with_transformer(answers[0], correct_answers))
                 else:
                     if answers[0] == answers[1] != answers[2]:
                         resolve_conflict(2, [0, 1], list(answers), list(explanations), correct_answers, 3)

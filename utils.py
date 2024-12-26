@@ -12,6 +12,67 @@ import datetime as time
 nlp = spacy.load('en_core_web_lg') # 400 MB
 #nlp2 = spacy.load('en_trf_bertbaseuncased_lg')
 
+from sentence_transformers import SentenceTransformer
+import numpy as np
+
+# Load the sentence transformer model
+model = SentenceTransformer('sentence-transformers/bert-base-nli-mean-tokens')
+
+def cosine_similarity(vec1, vec2):
+    """
+    Calculate the cosine similarity between two vectors.
+    
+    Args:
+        vec1 (numpy.ndarray): First vector.
+        vec2 (numpy.ndarray): Second vector.
+
+    Returns:
+        float: Cosine similarity score.
+    """
+    dot_product = np.dot(vec1, vec2)
+    norm_vec1 = np.linalg.norm(vec1)
+    norm_vec2 = np.linalg.norm(vec2)
+    return dot_product / (norm_vec1 * norm_vec2)
+
+def compare_responses_with_transformer(response1, response2):
+    """
+    Compare two responses using SentenceTransformer embeddings and cosine similarity.
+    
+    Args:
+        response1 (str): First response.
+        response2 (str): Second response.
+
+    Returns:
+        float: Cosine similarity score.
+    """
+    embedding1 = model.encode(response1)
+    embedding2 = model.encode(response2)
+    return cosine_similarity(embedding1, embedding2)
+
+def is_answer_correct_with_transformer(answer, correct_answers, threshold=0.75):
+    """
+    Check if the given answer is correct based on similarity to the list of correct answers.
+    
+    Args:
+        answer (str): The model's answer.
+        correct_answers (list of str): List of correct answers.
+        threshold (float): Minimum similarity score to consider the answer correct.
+
+    Returns:
+        bool: True if the answer matches any correct answer above the threshold.
+    """
+    # Compute similarity with each correct answer
+    similarities = [compare_responses_with_transformer(answer, correct) for correct in correct_answers]
+    max_similarity = max(similarities)
+
+    # Log details for debugging
+    logging.info(f"Answer: {answer}")
+    logging.info(f"Similarities: {similarities}")
+    logging.info(f"Max Similarity: {max_similarity}")
+
+    # Return True if similarity exceeds threshold
+    return max_similarity >= threshold
+
 def is_answer_correct(answer, correct_answers, threshold=0.75):
     """
     Check if the given answer is correct based on similarity to the list of correct answers.
