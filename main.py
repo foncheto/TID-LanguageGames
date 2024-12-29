@@ -63,6 +63,7 @@ class ExperimentLogger:
         :param n: Number of questions
         :param scores: Scores for each model
         """
+        print(f"scores: {scores}")
         result = sum(scores) / n * 100
         
         logging.info(f"Game: {game_name}")
@@ -134,12 +135,12 @@ def run_games(logger: ExperimentLogger, n: int = 5):
         
         games = [
             ("Truthful QA", truthful_qa_game),  # Corrected to a tuple
-            ("Strategy QA", sqa_game),
-            ("Commonsense QA", cqa_game),
-            ("Race-Middle", rmiddle_game),
-            ("Race-High", rhigh_game),
-            ("ARC-Easy", arc_easy_game),
-            ("ARC-Challenge", arc_chall_game)
+            #("Strategy QA", sqa_game)
+            #("Commonsense QA", cqa_game),
+            #("Race-Middle", rmiddle_game),
+            #("Race-High", rhigh_game),
+            #("ARC-Easy", arc_easy_game),
+            #("ARC-Challenge", arc_chall_game)
         ]
         
         for game_name, game_func in games:
@@ -163,12 +164,12 @@ def run_evaluations(logger: ExperimentLogger, n: int = 10):
         
         evaluations = [
             ("Truthful QA", truthful_qa_eval),
-            ("Strategy QA", sqa_eval),
-            ("Commonsense QA", cqa_eval),
-            ("Race-Middle", rmiddle_eval),
-            ("Race-High", rhigh_eval),
-            ("ARC-Easy", arc_easy_eval),
-            ("ARC-Challenge", arc_chall_eval)
+            #("Strategy QA", sqa_eval),
+            #("Commonsense QA", cqa_eval),
+            #("Race-Middle", rmiddle_eval),
+            #("Race-High", rhigh_eval),
+            #("ARC-Easy", arc_easy_eval),
+            #("ARC-Challenge", arc_chall_eval)
         ]
         
         for eval_name, eval_func in evaluations:
@@ -193,7 +194,7 @@ def main():
     run_games(logger)
     
     # Run evaluations (optional)
-    # run_evaluations(logger)
+    run_evaluations(logger)
     
     # Save final results
     logger.save_results()

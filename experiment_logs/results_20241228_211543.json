@@ -1,0 +1,13 @@
+{
+    "timestamp": "20241228_211543",
+    "games": {
+        "Truthful QA": {
+            "models": [
+                "gemma2-9b",
+                "llama3.1-8b",
+                "mistral-7b-instruct"
+            ],
+            "n_questions": 5,
+            "raw_scores": [
+                true,
+                

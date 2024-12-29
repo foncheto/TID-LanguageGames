@@ -18,6 +18,12 @@ import numpy as np
 # Load the sentence transformer model
 model = SentenceTransformer('sentence-transformers/bert-base-nli-mean-tokens')
 
+def get_max_transformer_similarity(answer: str, correct_answers: list[str]) -> float:
+    sims = [compare_responses_with_transformer(answer, c) for c in correct_answers]
+    return max(sims) if sims else 0.0
+
+
+
 def cosine_similarity(vec1, vec2):
     """
     Calculate the cosine similarity between two vectors.
@@ -49,7 +55,7 @@ def compare_responses_with_transformer(response1, response2):
     embedding2 = model.encode(response2)
     return cosine_similarity(embedding1, embedding2)
 
-def is_answer_correct_with_transformer(answer, correct_answers, threshold=0.75):
+def is_answer_correct_with_transformer(answer, correct_answers, threshold=0.6):
     """
     Check if the given answer is correct based on similarity to the list of correct answers.
     

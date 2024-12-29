@@ -1,0 +1,102 @@
+{
+    "timestamp": "20241228_215857",
+    "games": {
+        "Strategy QA": {
+            "models": [
+                "gemma2-9b",
+                "llama3.1-8b",
+                "mistral-7b-instruct"
+            ],
+            "n_questions": 5,
+            "raw_scores": [
+                true,
+                true,
+                true,
+                true,
+                false
+            ],
+            "percentage": 80.0
+        },
+        "Commonsense QA": {
+            "models": [
+                "gemma2-9b",
+                "llama3.1-8b",
+                "mistral-7b-instruct"
+            ],
+            "n_questions": 5,
+            "raw_scores": [
+                true,
+                true,
+                true,
+                true,
+                false
+            ],
+            "percentage": 80.0
+        },
+        "Race-Middle": {
+            "models": [
+                "gemma2-9b",
+                "llama3.1-8b",
+                "mistral-7b-instruct"
+            ],
+            "n_questions": 5,
+            "raw_scores": [
+                true,
+                true,
+                true,
+                true,
+                true
+            ],
+            "percentage": 100.0
+        },
+        "Race-High": {
+            "models": [
+                "gemma2-9b",
+                "llama3.1-8b",
+                "mistral-7b-instruct"
+            ],
+            "n_questions": 5,
+            "raw_scores": [
+                true,
+                true,
+                false,
+                true,
+                true
+            ],
+            "percentage": 80.0
+        },
+        "ARC-Easy": {
+            "models": [
+                "gemma2-9b",
+                "llama3.1-8b",
+                "mistral-7b-instruct"
+            ],
+            "n_questions": 5,
+            "raw_scores": [
+                true,
+                true,
+                true,
+                true,
+                true
+            ],
+            "percentage": 100.0
+        },
+        "ARC-Challenge": {
+            "models": [
+                "gemma2-9b",
+                "llama3.1-8b",
+                "mistral-7b-instruct"
+            ],
+            "n_questions": 5,
+            "raw_scores": [
+                true,
+                true,
+                true,
+                true,
+                true
+            ],
+            "percentage": 100.0
+        }
+    },
+    "evaluations": {}
+}

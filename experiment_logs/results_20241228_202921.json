@@ -1,0 +1,9 @@
+{
+    "timestamp": "20241228_202921",
+    "games": {},
+    "evaluations": {
+        "Truthful QA_gemma2-9b": {
+            "model": "gemma2-9b",
+            "n_questions": 10,
+            "raw_scores": [
+                
